@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\dashboardAdminController;
+use App\Http\Controllers\logoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', [loginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/authenticate', [loginController::class,'authenticate'])->name('authenticate');
+
+Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group(function() {
+    Route::get('/', [dashboardAdminController::class, 'index'])->name('admin');
+    Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
 });
