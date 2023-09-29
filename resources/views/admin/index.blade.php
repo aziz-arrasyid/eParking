@@ -2,651 +2,140 @@
 
 @section('content')
 <main id="main" class="main">
-
-    <div class="pagetitle">
-        <h1>Dashboard</h1>
+    <div class="container">
+        <h1 class="mt-3">Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>
-    </div><!-- End Page Title -->
+    </div>
 
-    <section class="section dashboard">
-        <div class="row">
-
-            <!-- Left side columns -->
-            <div class="col-lg-8">
-                <div class="row">
-
-                    <!-- Sales Card -->
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card sales-card">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Sales <span>| Today</span></h5>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-cart"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>145</h6>
-                                        <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                                    </div>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">REGISTER JUKIR</h5>
+                            <div class="row justify-content-end">
+                                <div class="col-auto">
+                                    <button class="btn btn-success m-3" data-toggle="modal" data-target="#addModal">Add Jukir</button>
                                 </div>
                             </div>
-
-                        </div>
-                    </div><!-- End Sales Card -->
-
-                    <!-- Revenue Card -->
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card revenue-card">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-currency-dollar"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>$3,264</h6>
-                                        <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div><!-- End Revenue Card -->
-
-                    <!-- Customers Card -->
-                    <div class="col-xxl-4 col-xl-12">
-
-                        <div class="card info-card customers-card">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>1244</h6>
-                                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div><!-- End Customers Card -->
-
-                    <!-- Reports -->
-                    <div class="col-12">
-                        <div class="card">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Reports <span>/Today</span></h5>
-
-                                <!-- Line Chart -->
-                                <div id="reportsChart"></div>
-
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", () => {
-                                        new ApexCharts(document.querySelector("#reportsChart"), {
-                                            series: [{
-                                                name: 'Sales',
-                                                data: [31, 40, 28, 51, 42, 82, 56],
-                                            }, {
-                                                name: 'Revenue',
-                                                data: [11, 32, 45, 32, 34, 52, 41]
-                                            }, {
-                                                name: 'Customers',
-                                                data: [15, 11, 32, 18, 9, 24, 11]
-                                            }],
-                                            chart: {
-                                                height: 350,
-                                                type: 'area',
-                                                toolbar: {
-                                                    show: false
-                                                },
-                                            },
-                                            markers: {
-                                                size: 4
-                                            },
-                                            colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                                            fill: {
-                                                type: "gradient",
-                                                gradient: {
-                                                    shadeIntensity: 1,
-                                                    opacityFrom: 0.3,
-                                                    opacityTo: 0.4,
-                                                    stops: [0, 90, 100]
-                                                }
-                                            },
-                                            dataLabels: {
-                                                enabled: false
-                                            },
-                                            stroke: {
-                                                curve: 'smooth',
-                                                width: 2
-                                            },
-                                            xaxis: {
-                                                type: 'datetime',
-                                                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                                            },
-                                            tooltip: {
-                                                x: {
-                                                    format: 'dd/MM/yy HH:mm'
-                                                },
-                                            }
-                                        }).render();
-                                    });
-                                </script>
-                                <!-- End Line Chart -->
-
-                            </div>
-
-                        </div>
-                    </div><!-- End Reports -->
-
-                    <!-- Recent Sales -->
-                    <div class="col-12">
-                        <div class="card recent-sales overflow-auto">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-
-                                <table class="table table-borderless datatable">
-                                    <thead>
+                            <!-- Default Table -->
+                            <div class="table-responsive">
+                                <table class="table" id="datatables">
+                                    {{-- <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">Phone Number</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row"><a href="#">#2457</a></th>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                            <td>$64</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
+                                            <th scope="row">1</th>
+                                            <td>wahyu andika kurniawan</td>
+                                            <td>17</td>
+                                            <td>08994879433</td>
+                                            <td>
+                                                <div class="d-flex flex-row">
+                                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" data-username="Brandon Jacob" data-age="28" data-phone="123-456-7890">Edit</button>
+                                                    <button class="btn btn-danger btn-sm ml-2" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                                </div>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2147</a></th>
-                                            <td>Bridie Kessler</td>
-                                            <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                                            <td>$47</td>
-                                            <td><span class="badge bg-warning">Pending</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2049</a></th>
-                                            <td>Ashleigh Langosh</td>
-                                            <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                                            <td>$147</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Angus Grady</td>
-                                            <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                            <td>$67</td>
-                                            <td><span class="badge bg-danger">Rejected</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#2644</a></th>
-                                            <td>Raheem Lehner</td>
-                                            <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                                            <td>$165</td>
-                                            <td><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                    </tbody>
+                                        <!-- Data lainnya ... -->
+                                    </tbody> --}}
                                 </table>
-
                             </div>
-
+                            <!-- End Default Table -->
                         </div>
-                    </div><!-- End Recent Sales -->
-
-                    <!-- Top Selling -->
-                    <div class="col-12">
-                        <div class="card top-selling overflow-auto">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body pb-0">
-                                <h5 class="card-title">Top Selling <span>| Today</span></h5>
-
-                                <table class="table table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Preview</th>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Sold</th>
-                                            <th scope="col">Revenue</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                                            <td>$64</td>
-                                            <td class="fw-bold">124</td>
-                                            <td>$5,828</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                                            <td>$46</td>
-                                            <td class="fw-bold">98</td>
-                                            <td>$4,508</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                                            <td>$59</td>
-                                            <td class="fw-bold">74</td>
-                                            <td>$4,366</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                                            <td>$32</td>
-                                            <td class="fw-bold">63</td>
-                                            <td>$2,016</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
-                                            <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                                            <td>$79</td>
-                                            <td class="fw-bold">41</td>
-                                            <td>$3,239</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-
-                        </div>
-                    </div><!-- End Top Selling -->
-
+                    </div>
                 </div>
-            </div><!-- End Left side columns -->
-
-            <!-- Right side columns -->
-            <div class="col-lg-4">
-
-                <!-- Recent Activity -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-
-                        <div class="activity">
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">32 min</div>
-                                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                                <div class="activity-content">
-                                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">56 min</div>
-                                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                                <div class="activity-content">
-                                    Voluptatem blanditiis blanditiis eveniet
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">2 hrs</div>
-                                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                                <div class="activity-content">
-                                    Voluptates corrupti molestias voluptatem
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">1 day</div>
-                                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                                <div class="activity-content">
-                                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">2 days</div>
-                                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                                <div class="activity-content">
-                                    Est sit eum reiciendis exercitationem
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">4 weeks</div>
-                                <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                                <div class="activity-content">
-                                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                                </div>
-                            </div><!-- End activity item-->
-
-                        </div>
-
-                    </div>
-                </div><!-- End Recent Activity -->
-
-                <!-- Budget Report -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body pb-0">
-                        <h5 class="card-title">Budget Report <span>| This Month</span></h5>
-
-                        <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                                    legend: {
-                                        data: ['Allocated Budget', 'Actual Spending']
-                                    },
-                                    radar: {
-                                        // shape: 'circle',
-                                        indicator: [{
-                                            name: 'Sales',
-                                            max: 6500
-                                        },
-                                        {
-                                            name: 'Administration',
-                                            max: 16000
-                                        },
-                                        {
-                                            name: 'Information Technology',
-                                            max: 30000
-                                        },
-                                        {
-                                            name: 'Customer Support',
-                                            max: 38000
-                                        },
-                                        {
-                                            name: 'Development',
-                                            max: 52000
-                                        },
-                                        {
-                                            name: 'Marketing',
-                                            max: 25000
-                                        }
-                                        ]
-                                    },
-                                    series: [{
-                                        name: 'Budget vs spending',
-                                        type: 'radar',
-                                        data: [{
-                                            value: [4200, 3000, 20000, 35000, 50000, 18000],
-                                            name: 'Allocated Budget'
-                                        },
-                                        {
-                                            value: [5000, 14000, 28000, 26000, 42000, 21000],
-                                            name: 'Actual Spending'
-                                        }
-                                        ]
-                                    }]
-                                });
-                            });
-                        </script>
-
-                    </div>
-                </div><!-- End Budget Report -->
-
-                <!-- Website Traffic -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body pb-0">
-                        <h5 class="card-title">Website Traffic <span>| Today</span></h5>
-
-                        <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                echarts.init(document.querySelector("#trafficChart")).setOption({
-                                    tooltip: {
-                                        trigger: 'item'
-                                    },
-                                    legend: {
-                                        top: '5%',
-                                        left: 'center'
-                                    },
-                                    series: [{
-                                        name: 'Access From',
-                                        type: 'pie',
-                                        radius: ['40%', '70%'],
-                                        avoidLabelOverlap: false,
-                                        label: {
-                                            show: false,
-                                            position: 'center'
-                                        },
-                                        emphasis: {
-                                            label: {
-                                                show: true,
-                                                fontSize: '18',
-                                                fontWeight: 'bold'
-                                            }
-                                        },
-                                        labelLine: {
-                                            show: false
-                                        },
-                                        data: [{
-                                            value: 1048,
-                                            name: 'Search Engine'
-                                        },
-                                        {
-                                            value: 735,
-                                            name: 'Direct'
-                                        },
-                                        {
-                                            value: 580,
-                                            name: 'Email'
-                                        },
-                                        {
-                                            value: 484,
-                                            name: 'Union Ads'
-                                        },
-                                        {
-                                            value: 300,
-                                            name: 'Video Ads'
-                                        }
-                                        ]
-                                    }]
-                                });
-                            });
-                        </script>
-
-                    </div>
-                </div><!-- End Website Traffic -->
-
-                <!-- News & Updates Traffic -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body pb-0">
-                        <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
-
-                        <div class="news">
-                            <div class="post-item clearfix">
-                                <img src="assets/img/news-1.jpg" alt="">
-                                <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                                <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/news-2.jpg" alt="">
-                                <h4><a href="#">Quidem autem et impedit</a></h4>
-                                <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/news-3.jpg" alt="">
-                                <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                                <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/news-4.jpg" alt="">
-                                <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                                <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                            </div>
-
-                            <div class="post-item clearfix">
-                                <img src="assets/img/news-5.jpg" alt="">
-                                <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                                <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                            </div>
-
-                        </div><!-- End sidebar recent posts-->
-
-                    </div>
-                </div><!-- End News & Updates -->
-
-            </div><!-- End Right side columns -->
-
+            </div>
         </div>
     </section>
 
+    <!-- Modal Edit -->
+    <div class="modal fade" id="edit-modal-jukir" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                    <button type="button" id="closeXEdit" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form Edit Data -->
+                    <form id="form-edit" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="editName">nama</label>
+                            <input type="text" name="name" class="form-control" id="editName">
+                        </div>
+                        <div class="form-group">
+                            <label for="editUsername">Username</label>
+                            <input type="text" name="username" class="form-control" id="editUsername">
+                        </div>
+                        <div class="form-group">
+                            <label for="editAge">Age</label>
+                            <input type="text" name="age" class="form-control" id="editAge">
+                        </div>
+                        <div class="form-group">
+                            <label for="editPhone">Phone Number</label>
+                            <input type="text" name="phoneNumber" class="form-control" id="editPhone">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeEdit" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="saveEdit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Add User  -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Add Jukir</h5>
+                    <button type="button" id="closeXAdd" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form Add User -->
+                    <form action="{{ route('data-jukir.store') }}" method="POST" id="form-add" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="addUsername">name</label>
+                            <input type="text" name="name" class="form-control" id="addUsername">
+                        </div>
+                        <div class="form-group">
+                            <label for="addAge">Age</label>
+                            <input type="number" name="age" class="form-control" id="addAge">
+                        </div>
+                        <div class="form-group">
+                            <label for="addPhone">Phone Number</label>
+                            <input type="number" name="phoneNumber" class="form-control" id="addPhone">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeAdd" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary" id="saveAdd">Buat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 @endsection
 
@@ -672,6 +161,204 @@
         @if(Session('login'))
         toastr.success('{{ session('login') }}');
         @endif
-    })
-</script>
-@endpush
+
+        @if(Session('success'))
+        toastr.success('{{ session('success') }}');
+        @endif
+
+        const modalAdd = $('#addModal');
+        const batalButton = modalAdd.find('#closeAdd');
+        const XButton = modalAdd.find('#closeXAdd');
+
+
+        document.getElementById('form-add').addEventListener('submit', function(event) {
+            localStorage.setItem('name', $('#addUsername').val());
+            localStorage.setItem('age', $('#addAge').val());
+            localStorage.setItem('phoneNumber', $('#addPhone').val());
+        })
+
+        @if($errors->any())
+        modalAdd.modal('hide');
+        const errorMessages = [];
+        @foreach($errors->all() as $error)
+        errorMessages.push('{{ $error }}');
+        @endforeach
+        const errorMessage = errorMessages.join('<br>');
+        Swal.fire('Data gagal di edit', errorMessage, 'error').then(() => {
+            $('#addUsername').val(localStorage.getItem('name'));
+            $('#addAge').val(localStorage.getItem('age'));
+            $('#addPhone').val(localStorage.getItem('phoneNumber'));
+            modalAdd.modal('show');
+        });
+
+        batalButton.on('click', function() {
+            modalAdd.modal('hide');
+        });
+        XButton.on('click', function() {
+            modalAdd.modal('hide');
+        });
+        @endif
+
+        //table serverside
+        let table = $('#datatables').DataTable({
+            ajax: '{{ route('server.side') }}',
+            processing: true,
+            serverSide: true,
+            deferRender: true,
+            columns: [
+            {
+                title: 'No',
+                data: null,
+                render: function(data, type, row, meta){
+                    return meta.settings._iDisplayStart + meta.row + 1;
+                },
+                searchable: false,
+                orderable: false,
+            },
+            {
+                title: 'Nama',
+                data: 'name'
+            },
+            {
+                title: 'Username',
+                data: 'user.username'
+            },
+            {
+                title: 'Umur',
+                data: 'age'
+            },
+            {
+                title: 'Nomor HP',
+                data: 'phoneNumber'
+            },
+            {
+                title: 'Action',
+                data: null,
+                render: function(data, type, row){
+
+                    return '<div class="d-flex flex-row">' +
+                        '<button class="btn btn-primary btn-sm edit-modal" data-id="' + data.id + '" data-toggle="modal">Edit</button>' +
+                        '<button class="btn btn-danger btn-sm ml-2 delete-modal" data-toggle="modal" data-id="' + data.id + '" data-target="#deleteModal">Delete</button>' +
+                        '</div>';
+                    },
+                    searhable: false,
+                },
+                ],
+                initComplete: function(){
+                    //variable global
+                    const modalEdit = $('#edit-modal-jukir');
+                    let data_jukir = null;
+
+                    //fungsi tampil data edit
+                    $(document).on('click', '.edit-modal', function() {
+                        // const modalEdit = $('#editModal');
+                        modalEdit.modal('show');
+                        const batalButtonEdit = modalEdit.find('#closeEdit');
+                        const XButtonEdit = modalEdit.find('#closeXEdit');
+                        data_jukir = $(this).data('id');
+
+                        axios.get(`/dashboard-admin/data-jukir/${data_jukir}/edit`).then(response => {
+                            $('#editName').val(response.data.name);
+                            $('#editUsername').val(response.data.user.username);
+                            $('#editAge').val(response.data.age);
+                            $('#editPhone').val(response.data.phoneNumber);
+                        })
+
+
+
+                        batalButtonEdit.on('click', function() {
+                            modalEdit.modal('hide')
+                            window.location.reload();
+                        });
+                        XButtonEdit.on('click', function() {
+                            modalEdit.modal('hide');
+                            window.location.reload();
+                        });
+
+                        modalEdit.on('click', function(e) {
+                            if ($(e.target).hasClass('modal')) {
+                                // Klik diluar modal, maka reload halaman
+                                window.location.reload();
+                            }
+                        });
+
+                    })
+
+                    //fungsi update/edit data
+                    document.getElementById('form-edit').addEventListener('submit', function(event) {
+                        event.preventDefault();
+
+                        let name = $('#editName').val();
+                        let age = $('#editAge').val();
+                        let phoneNumber = $('#editPhone').val();
+                        let username = $('#editUsername').val();
+                        axios.put(`/dashboard-admin/data-jukir/${data_jukir}`, {
+                            name: name,
+                            age: age,
+                            phoneNumber: phoneNumber,
+                            username: username,
+                        }).then(response => {
+                            modalEdit.modal('hide');
+                            console.log(modalEdit);
+                            swal.fire('Data berhasil di edit', '', 'success').then(() => {
+                                window.location.reload();
+                            })
+                        })
+                        .catch(error => {
+                            modalEdit.modal('hide');
+                            console.log(error.response.data);
+                            if(error.response && error.response.status === 422){
+                                const errorData = error.response.data;
+                                const errorMessages = error.response.data.errors;
+                                let errorMessage = '';
+
+                                let isFirstError = true; // Flag to track the first error
+                                for (const field in errorMessages) {
+                                    if (!isFirstError) {
+                                        errorMessage += ', '; // Add a comma before the error message
+                                    } else {
+                                        isFirstError = false;
+                                    }
+                                    errorMessage += errorMessages[field][0];
+                                }
+                                if (errorData.error) {
+                                    errorMessage += ', ' + errorData.error;
+                                }
+                                Swal.fire('Data gagal di edit', errorMessage, 'error').then(() => {
+                                    modalEdit.modal('show');
+                                });
+                            }else{
+                                Swal.fire('Data gagal di edit', 'Terjadi kesalahan pada sisi server, hubungi kami segera', 'error');
+                            }
+                        })
+                    })
+
+                    //fungsi delete data
+                    $(document).on('click', '.delete-modal', function() {
+                        let data_jukir = $(this).data('id');
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                axios.delete(`/dashboard-admin/data-jukir/${data_jukir}`).then(response => {
+                                    swal.fire('Data berhasil dihapus', '', 'success').then(() => {
+                                        window.location.reload();
+                                    })
+                                }).catch(error => {
+                                    swal.fire('Data gagal di hapus', '', 'error');
+                                })
+                            }
+                        })
+                    })
+
+                }
+            });
+        })
+    </script>
+    @endpush

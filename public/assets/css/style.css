@@ -309,10 +309,11 @@ h6 {
   font-family: "Nunito", sans-serif;
   color: #899bbd;
   font-weight: 600;
+  background-color: #091f5b !important;
 }
 
 .breadcrumb a {
-  color: #899bbd;
+  color: #ffffff;
   transition: 0.3s;
 }
 
@@ -684,9 +685,9 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: #091f5b;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #c3ccde;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -694,7 +695,7 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color: #091f5b;
 }
 
 .sidebar-nav .nav-link.collapsed {
@@ -707,12 +708,12 @@ h6 {
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color: #091f5b;
+  background: #c3ccde;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #091f5b;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -750,11 +751,11 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #091f5b;
 }
 
 .sidebar-nav .nav-content a.active i {
-  background-color: #4154f1;
+  background-color: #091f5b;
 }
 
 /*--------------------------------------------------------------
