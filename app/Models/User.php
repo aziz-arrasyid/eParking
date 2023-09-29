@@ -46,4 +46,9 @@ class User extends Authenticatable
             get: fn($value) => ['admin', 'jukir'][$value],
         );
     }
+
+    public function jukir()
+    {
+        return $this->hasOne(Jukir::class);
+    }
 }

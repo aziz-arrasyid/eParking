@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardAdminController;
+use App\Http\Controllers\JukirController;
 use App\Http\Controllers\logoutController;
 
 /*
@@ -22,4 +23,6 @@ Route::post('/authenticate', [loginController::class,'authenticate'])->name('aut
 Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group(function() {
     Route::get('/', [dashboardAdminController::class, 'index'])->name('admin');
     Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
+    Route::resource('data-jukir', JukirController::class);
+    Route::get('/server', [dashboardAdminController::class, 'serverSide'])->name('server.side');
 });
