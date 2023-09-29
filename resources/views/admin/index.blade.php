@@ -1,142 +1,108 @@
 @extends('layouts.master')
 
 @section('content')
-<main id="main" class="main">
+<section class="section">
     <div class="container">
-        <h1 class="mt-3">Dashboard</h1>
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-        </nav>
-    </div>
-
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">REGISTER JUKIR</h5>
-                            <div class="row justify-content-end">
-                                <div class="col-auto">
-                                    <button class="btn btn-success m-3" data-toggle="modal" data-target="#addModal">Add Jukir</button>
-                                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Jukir</h5>
+                        <div class="row justify-content-end">
+                            <div class="col-auto">
+                                <button class="btn btn-success m-3" data-toggle="modal" data-target="#addModal">Add Jukir</button>
                             </div>
-                            <!-- Default Table -->
-                            <div class="table-responsive">
-                                <table class="table" id="datatables">
-                                    {{-- <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Age</th>
-                                            <th scope="col">Phone Number</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>wahyu andika kurniawan</td>
-                                            <td>17</td>
-                                            <td>08994879433</td>
-                                            <td>
-                                                <div class="d-flex flex-row">
-                                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" data-username="Brandon Jacob" data-age="28" data-phone="123-456-7890">Edit</button>
-                                                    <button class="btn btn-danger btn-sm ml-2" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- Data lainnya ... -->
-                                    </tbody> --}}
-                                </table>
-                            </div>
-                            <!-- End Default Table -->
                         </div>
+                        <!-- Default Table -->
+                        <div class="table-responsive">
+                            <table class="table" id="datatables">
+                                {{--  --}}
+                            </table>
+                        </div>
+                        <!-- End Default Table -->
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Edit -->
-    <div class="modal fade" id="edit-modal-jukir" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
-                    <button type="button" id="closeXEdit" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form Edit Data -->
-                    <form id="form-edit" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="editName">nama</label>
-                            <input type="text" name="name" class="form-control" id="editName">
-                        </div>
-                        <div class="form-group">
-                            <label for="editUsername">Username</label>
-                            <input type="text" name="username" class="form-control" id="editUsername">
-                        </div>
-                        <div class="form-group">
-                            <label for="editAge">Age</label>
-                            <input type="text" name="age" class="form-control" id="editAge">
-                        </div>
-                        <div class="form-group">
-                            <label for="editPhone">Phone Number</label>
-                            <input type="text" name="phoneNumber" class="form-control" id="editPhone">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="closeEdit" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="saveEdit">Save changes</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Modal Add User  -->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabel">Add Jukir</h5>
-                    <button type="button" id="closeXAdd" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form Add User -->
-                    <form action="{{ route('data-jukir.store') }}" method="POST" id="form-add" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="addUsername">name</label>
-                            <input type="text" name="name" class="form-control" id="addUsername">
-                        </div>
-                        <div class="form-group">
-                            <label for="addAge">Age</label>
-                            <input type="number" name="age" class="form-control" id="addAge">
-                        </div>
-                        <div class="form-group">
-                            <label for="addPhone">Phone Number</label>
-                            <input type="number" name="phoneNumber" class="form-control" id="addPhone">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="closeAdd" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary" id="saveAdd">Buat</button>
-                    </div>
-                </form>
+<!-- Modal Edit -->
+<div class="modal fade" id="edit-modal-jukir" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <button type="button" id="closeXEdit" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <!-- Form Edit Data -->
+                <form id="form-edit" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="editName">nama</label>
+                        <input type="text" name="name" class="form-control" id="editName">
+                    </div>
+                    <div class="form-group">
+                        <label for="editUsername">Username</label>
+                        <input type="text" name="username" class="form-control" id="editUsername">
+                    </div>
+                    <div class="form-group">
+                        <label for="editAge">Age</label>
+                        <input type="text" name="age" class="form-control" id="editAge">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Phone Number</label>
+                        <input type="text" name="phoneNumber" class="form-control" id="editPhone">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeEdit" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="saveEdit">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
-</main>
+</div>
+
+<!-- Modal Add User  -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add Jukir</h5>
+                <button type="button" id="closeXAdd" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form Add User -->
+                <form action="{{ route('data-jukir.store') }}" method="POST" id="form-add" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <label for="addUsername">name</label>
+                        <input type="text" name="name" class="form-control" id="add_username">
+                    </div>
+                    <div class="form-group">
+                        <label for="addAge">Age</label>
+                        <input type="number" name="age" class="form-control" id="add_age">
+                    </div>
+                    <div class="form-group">
+                        <label for="addPhone">Phone Number</label>
+                        <input type="number" name="phoneNumber" class="form-control" id="add_phone">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeAdd" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary" id="saveAdd">Buat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
@@ -172,9 +138,9 @@
 
 
         document.getElementById('form-add').addEventListener('submit', function(event) {
-            localStorage.setItem('name', $('#addUsername').val());
-            localStorage.setItem('age', $('#addAge').val());
-            localStorage.setItem('phoneNumber', $('#addPhone').val());
+            localStorage.setItem('name', $('#add_username').val());
+            localStorage.setItem('age', $('#add_age').val());
+            localStorage.setItem('phoneNumber', $('#add_phone').val());
         })
 
         @if($errors->any())
@@ -184,20 +150,34 @@
         errorMessages.push('{{ $error }}');
         @endforeach
         const errorMessage = errorMessages.join('<br>');
-        Swal.fire('Data gagal di edit', errorMessage, 'error').then(() => {
-            $('#addUsername').val(localStorage.getItem('name'));
-            $('#addAge').val(localStorage.getItem('age'));
-            $('#addPhone').val(localStorage.getItem('phoneNumber'));
+        Swal.fire('Data gagal ditambah', errorMessage, 'error').then(() => {
+            $('#add_username').val(localStorage.getItem('name'));
+            $('#add_age').val(localStorage.getItem('age'));
+            $('#add_phone').val(localStorage.getItem('phoneNumber'));
             modalAdd.modal('show');
         });
 
+        @endif
+        modalAdd.on('click', function(e) {
+            if ($(e.target).hasClass('modal')) {
+               modalAdd.modal('hide');
+               $('#add_username').val(null);
+               $('#add_age').val(null);
+               $('#add_phone').val(null);
+            }
+        });
         batalButton.on('click', function() {
             modalAdd.modal('hide');
+            $('#add_username').val(null);
+            $('#add_age').val(null);
+            $('#add_phone').val(null);
         });
         XButton.on('click', function() {
             modalAdd.modal('hide');
+            $('#add_username').val(null);
+            $('#add_age').val(null);
+            $('#add_phone').val(null);
         });
-        @endif
 
         //table serverside
         let table = $('#datatables').DataTable({

@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardAdminController;
+use App\Http\Controllers\dashboardJukirController;
 use App\Http\Controllers\JukirController;
 use App\Http\Controllers\logoutController;
+use App\Http\Controllers\ParkirController;
+use App\Http\Controllers\TransportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +28,11 @@ Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group
     Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
     Route::resource('data-jukir', JukirController::class);
     Route::get('/server', [dashboardAdminController::class, 'serverSide'])->name('server.side');
+    Route::resource('data-kendaraan', TransportController::class);
+});
+
+Route::middleware(['auth', 'user-role:jukir'])->prefix('dashboard-jukir')->group(function() {
+    Route::get('/', [dashboardJukirController::class, 'index'])->name('jukir');
+    Route::resource('data-parkir', ParkirController::class);
+    Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
 });

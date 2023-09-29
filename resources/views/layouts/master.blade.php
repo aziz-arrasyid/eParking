@@ -48,7 +48,24 @@
     <!-- End Sidebar-->
 
     <!-- ======= #main ======= -->
-    @yield('content')
+    <main id="main" class="main">
+        <div class="container">
+            <h1 class="mt-3">Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('admin') }}">Home</a></li>
+                    <li class="breadcrumb-item active">
+                        @if(Route::is('data-jukir.index'))
+                            Data Jukir
+                        @elseif(Route::is('data-kendaraan.index'))
+                            Data Kendaraan
+                        @endif
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        @yield('content')
+    </main>
     <!-- End #main -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -76,7 +93,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
-@stack('scripts')
 
 </html>
