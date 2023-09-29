@@ -312,7 +312,7 @@ h6 {
 }
 
 .breadcrumb a {
-  color: #899bbd;
+  color: #ff0000;
   transition: 0.3s;
 }
 
@@ -321,7 +321,7 @@ h6 {
 }
 
 .breadcrumb .breadcrumb-item::before {
-  color: #899bbd;
+  color: #045cff;
 }
 
 .breadcrumb .active {
@@ -684,9 +684,9 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: #ff0000;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #c3ccde;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -694,7 +694,7 @@ h6 {
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color: #fb0808;
 }
 
 .sidebar-nav .nav-link.collapsed {
