@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parkir;
 use App\Models\Transport;
 use Illuminate\Http\Request;
 
@@ -86,6 +87,8 @@ class TransportController extends Controller
      */
     public function destroy(Transport $data_kendaraan)
     {
+        Parkir::where('transport_id', $data_kendaraan->id)->delete();
+
         $data_kendaraan->delete();
 
         return response()->json();

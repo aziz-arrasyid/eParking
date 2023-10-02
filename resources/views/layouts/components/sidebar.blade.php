@@ -25,7 +25,7 @@
         <li class="nav-item">
             <a class="nav-link {{ Route::is('data-parkir.index') ? 'active' : '' }}" href="{{ route('data-parkir.index') }}">
                 <i class="ri-account-pin-circle-fill"></i>
-                <span>Data Jukir</span>
+                <span>Data Parkir</span>
             </a>
         </li>
         @endif

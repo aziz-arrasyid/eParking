@@ -10,4 +10,9 @@ class Transport extends Model
     use HasFactory;
 
     protected $guarded =['id'];
+
+    public function parkir()
+    {
+        return $this->hasMany(Parkir::class);
+    }
 }

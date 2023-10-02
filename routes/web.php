@@ -27,7 +27,7 @@ Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group
     Route::get('/', [dashboardAdminController::class, 'index'])->name('admin');
     Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
     Route::resource('data-jukir', JukirController::class);
-    Route::get('/server', [dashboardAdminController::class, 'serverSide'])->name('server.side');
+    Route::get('/server', [dashboardAdminController::class, 'serverSide'])->name('server.jukir');
     Route::resource('data-kendaraan', TransportController::class);
 });
 
@@ -35,4 +35,5 @@ Route::middleware(['auth', 'user-role:jukir'])->prefix('dashboard-jukir')->group
     Route::get('/', [dashboardJukirController::class, 'index'])->name('jukir');
     Route::resource('data-parkir', ParkirController::class);
     Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
+    Route::get('/server', [dashboardJukirController::class, 'serverSide'])->name('server.parkir');
 });

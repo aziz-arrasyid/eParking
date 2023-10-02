@@ -181,7 +181,7 @@
 
         //table serverside
         let table = $('#datatables').DataTable({
-            ajax: '{{ route('server.side') }}',
+            ajax: '{{ route('server.jukir') }}',
             processing: true,
             serverSide: true,
             deferRender: true,
@@ -317,13 +317,13 @@
                     $(document).on('click', '.delete-modal', function() {
                         let data_jukir = $(this).data('id');
                         Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to revert this!",
+                            title: 'Apa kamu ingin hapus data?',
+                            text: "Data yang sudah dihapus tidak bisa dikembalikan!",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
+                            confirmButtonText: 'Iya, saya mau hapus!'
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 axios.delete(`/dashboard-admin/data-jukir/${data_jukir}`).then(response => {

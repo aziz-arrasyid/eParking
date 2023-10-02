@@ -24,7 +24,6 @@
     <link href="{{ asset('assets/vendor/quill/quill.snow.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/vendor/simple-datatables/style.css') }}" rel="stylesheet"> --}}
 
 
     <!-- Template Main CSS File -->
@@ -52,6 +51,7 @@
         <div class="container">
             <h1 class="mt-3">Dashboard</h1>
             <nav>
+                @if (Auth()->user()->role == 'admin')
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin') }}">Home</a></li>
                     <li class="breadcrumb-item active">
@@ -62,6 +62,17 @@
                         @endif
                     </li>
                 </ol>
+                @endif
+                @if (Auth()->user()->role =='jukir')
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('jukir') }}">Home</a></li>
+                    <li class="breadcrumb-item active">
+                        @if(Route::is('data-parkir.index'))
+                            Data Parkir
+                        @endif
+                    </li>
+                </ol>
+                @endif
             </nav>
         </div>
         @yield('content')
@@ -76,7 +87,6 @@
     <script src="{{ asset('assets/vendor/chart.js/chart.umd.js') }}"></script>
     <script src="{{ asset('assets/vendor/echarts/echarts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/quill/quill.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/vendor/simple-datatables/simple-datatables.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 

@@ -15,4 +15,9 @@ class Jukir extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function parkir()
+    {
+        return $this->hasMany(Parkir::class);
+    }
 }

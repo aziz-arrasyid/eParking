@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('parkirs', function (Blueprint $table) {
             $table->id();
+            $table->string('no_plat');
+            $table->foreignId('transport_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('jukir_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
