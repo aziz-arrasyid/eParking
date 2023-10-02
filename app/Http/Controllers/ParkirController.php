@@ -82,11 +82,13 @@ class ParkirController extends Controller
                 'transport_id' => 'required',
                 'jukir_id' => 'required',
                 'no_plat' => 'required',
+                'status' => 'required',
             ],
             [
                 'transport_id.required' => 'Jenis kendaran tidak boleh kosong',
                 'jukir_id.required' => 'id jukir tidak boleh kosong',
                 'no_plat.required' => 'No plat tidak boleh kosong',
+                'status.required' => 'bayar parkir tidak boleh kosong',
             ]
         );
 
@@ -96,6 +98,7 @@ class ParkirController extends Controller
             'transport_id' => $request->transport_id,
             'jukir_id' => $request->jukir_id,
             'no_plat' => $upperString,
+            'status' => $request->status,
         ]);
 
         return response()->json();

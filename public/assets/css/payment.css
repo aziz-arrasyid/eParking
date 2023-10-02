@@ -1,0 +1,128 @@
+/* fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,500&family=Poppins&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c3ccde;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #091f5b;
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px rgba(236, 231, 231, 0.2);
+    text-align: center;
+    height: 500px;
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    
+}
+
+img {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    position: relative;
+    left: 9%;
+    text-align: left;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.tutorial {
+    text-align: left;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 14px;
+    margin-top: 7px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 60px;
+    padding: 20px 100px;
+    background-color: #9a9dab;
+    color: #fff; /* Warna teks tombol */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Tampilan Android */
+@media (max-width: 768px) {
+    .container {
+        padding: 50px;
+    }
+
+    h3 {
+        position: relative;
+        left: 9%;
+        text-align: left;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 15px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
+
+    }
+}
+
+/* Tampilan Iphone */
+@media (max-width: 400px) {
+    .container {
+        padding: 20px; /* Mengurangi padding di perangkat mobile */
+    }
+
+    h1 {
+        font-size: 24px; /* Mengurangi ukuran teks judul di perangkat mobile */
+    }
+
+    img {
+        text-align: center;
+        width: 280px;
+        height: 280px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 15px; /* Mengurangi ukuran teks h3 di perangkat mobile */
+    }
+
+    .tutorial {
+        font-size: 13px; /* Mengurangi ukuran teks tutorial di perangkat mobile */
+    }
+
+    .back-button {
+        margin-top: 40px; /* Mengurangi margin atas tombol di perangkat mobile */
+        padding: 20px 100px; /* Mengurangi padding tombol di perangkat mobile */
+        font-size: 16px; /* Mengurangi ukuran teks tombol di perangkat mobile */
+    }
+}

@@ -54,7 +54,13 @@
                         <input type="text" class="form-control" name="no_plat" id="edit_nomor_plat">
                         <input type="text" class="form-control" readonly value="{{ $DataDiri->id }}" name="jukir_id" id="edit_jukir">
                     </div>
-
+                    <div class="form-group">
+                        <label for="edit_kendaraan">Bayar Parkir</label>
+                        <select class="form-control" name="status" id="edit_bayar_parkir">
+                            <option value="paid">paid</option>
+                            <option value="unpaid">unpaid</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="closeEdit" data-dismiss="modal">Close</button>
@@ -202,13 +208,17 @@
                 render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp. ' )
             },
             {
+                title: 'status',
+                data: 'status'
+            },
+            {
                 title: 'Action',
                 data: null,
                 render: function(data, type, row){
 
                     return '<div class="d-flex flex-row">' +
                         '<button class="btn btn-primary btn-sm edit_modal" data-id="' + data.id + '" data-toggle="modal">Edit</button>' +
-                        '<button class="btn btn-info ml-2 btn-sm" data-id="' + data.id + '">Bayar</button>' +
+                        '<a href="{{ route('payment') }}" class="btn btn-info ml-2 btn-sm ' + (data.status == 'paid' ? 'disabled' : '') + '" data-id="' + data.id + '" data-toggle="modal" data-target="#bayarModal">Bayar QRIS</a>' +
                         '<button class="btn btn-danger btn-sm ml-2 delete-modal" data-toggle="modal" data-id="' + data.id + '" data-target="#deleteModal">Delete</button>' +
                         '</div>';
                     },
@@ -231,6 +241,7 @@
                         axios.get(`/dashboard-jukir/data-parkir/${data_parkir}/edit`).then(response => {
                             $('#edit_kendaraan').val(response.data.transport.id);
                             $('#edit_nomor_plat').val(response.data.no_plat);
+                            $('#edit_bayar_parkir').val(response.data.status);
                         })
 
                         batalButtonEdit.on('click', function() {
@@ -258,10 +269,12 @@
                         let transport_id = $('#edit_kendaraan').val();
                         let no_plat = $('#edit_nomor_plat').val();
                         let jukir_id = $('#edit_jukir').val();
+                        let status = $('#edit_bayar_parkir').val();
                         axios.put(`/dashboard-jukir/data-parkir/${data_parkir}`, {
                             transport_id: transport_id,
                             no_plat: no_plat,
                             jukir_id: jukir_id,
+                            status: status,
                         }).then(response => {
                             modalEdit.modal('hide');
                             console.log(modalEdit);

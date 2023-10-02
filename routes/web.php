@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardAdminController;
 use App\Http\Controllers\dashboardJukirController;
+use App\Http\Controllers\dashboardParkirController;
 use App\Http\Controllers\JukirController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\ParkirController;
@@ -33,7 +34,11 @@ Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group
 
 Route::middleware(['auth', 'user-role:jukir'])->prefix('dashboard-jukir')->group(function() {
     Route::get('/', [dashboardJukirController::class, 'index'])->name('jukir');
+    Route::get('/payment', [dashboardJukirController::class, 'payment'])->name('payment');
     Route::resource('data-parkir', ParkirController::class);
     Route::get('/logout', [logoutController::class, 'logout'])->name('logout');
     Route::get('/server', [dashboardJukirController::class, 'serverSide'])->name('server.parkir');
 });
+
+Route::get('/history-parkir/{no_plat}', [dashboardParkirController::class, 'index'])->name('parkir');
+
