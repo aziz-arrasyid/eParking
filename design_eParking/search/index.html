@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian</title>
+    <!-- Tambahkan tautan ke Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Tambahkan tautan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container text-center mt-2 container-scroll">
+        <img src="logo.png" alt="Logo" class="logo mb-5">
+        <form>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control search-input" placeholder="Cari Kendaraan" aria-label="Cari Kendaraan" aria-describedby="button-addon2" id="search-input">
+            </div>
+            <button class="btn btn-secondary btn-sm" type="button"><span style="margin-right: 5px;">Cari Kendaraan</span> <i class="fas fa-search" ></i></button>
+        </form>
+        
+        <!-- Card dengan data kendaraan 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">AC 1092 LO</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $5</p>
+                        <p class="card-text">Durasi Parkir: 2 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">BD 5678 AB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $7</p>
+                        <p class="card-text">Durasi Parkir: 3 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Motor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">XY 2122 ll</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">T 555 GE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">M 44 GT</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">GY 122 l</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">4L 223 R</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">L 234 l</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-5 custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">PLAT NOMOR :</h5>
+                        <div class="col">
+                            <div class="card custom-small-card text-center">
+                                <div class="card-body">
+                                    <p class="card-text text-center">QL 44 E</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="card-text">Harga Parkir: $6</p>
+                        <p class="card-text">Durasi Parkir: 1 jam</p>
+                        <p class="card-text">Jenis Kendaraan: Mobil</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+
+<!-- Modal jika tidak ada hasil -->
+<div class="modal fade" id="no-result-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!-- Tambahkan tombol "Tutup" di sini -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tidak Ada Hasil</h5>
+            </div>
+            <div class="modal-body">
+                KENDARAAN TIDAK ADA.
+            </div>
+            <div class="modal-footer">
+                <!-- Tombol "Tutup" untuk menutup modal -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal jika tidak ada hasil -->
+<div class="modal fade" id="no-result-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tidak Ada Hasil</h5>
+            </div>
+            <div class="modal-body">
+                KENDARAAN TIDAK ADA.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container-fluid">
+        <p>&copy; <span id="currentYear"></span> RPL SMKN 4 Tanjungpinang</p>
+    </div>
+</footer>
+
+<!-- Include jQuery dan Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript untuk fitur pencarian dan pop-up -->
+<script src="script.js"></script>
+
+<!-- JavaScript untuk menampilkan tahun saat ini -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const currentYearElement = document.getElementById("currentYear");
+        const currentYear = new Date().getFullYear();
+        currentYearElement.textContent = currentYear;
+    });
+</script>
+
+
+    <!-- Include jQuery dan Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript untuk fitur pencarian dan pop-up -->
+    <script src="script.js"></script>
+
+</body>
+</html>
