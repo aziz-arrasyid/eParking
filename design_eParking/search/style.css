@@ -1,116 +1,109 @@
-/* Styling untuk body */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    color: #ffffff; 
+.container-fluid {
+    padding: 20px;
 }
 
-/* Styling untuk logo */
-.logo {
-    width: 150px;
-    height: auto;
-}
-
-span {
-    color: #000000;
-}
-
-p {
-    color: #ffffff;
-}
-
-/* Styling untuk search bar */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #C3CCDE; 
-    padding: 10px; 
-    border-radius: 5px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); 
-}
-
-.search-input {
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    width: 100%; 
-    font-size: 16px; 
-}
-
-.btn-dark {
-    width: 80px;
-    border-radius: 50px; 
-    background-color: #091F5B; 
-    color: #fff; 
-    border: none;
-}
-
-.btn-dark:hover {
-    background-color: #3e4761;
-}
-
-.btn-dark i.fas {
-    margin-right: 10px center;
-    padding: 10px 0px;
-
-}
-
-/* Styling untuk ikon person */
-.fa-user-circle {
-    font-size: 30px;
-    color: #091F5B;
-    margin-left: 10px;
-}
-
-/* Styling untuk kartu parkir */
-.parking-card {
-    background-color: #091F5B;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Mengatur tampilan card kendaraan */
+.custom-card {
+    border: 2px solid #091F5B;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: #ffffff;
-}
-
-.parking-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #091F5B;
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
+.card-title {
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
 }
 
-.card-data {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+.card-text {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: left;
 }
 
-.card-number-plate {
+.card-body {
+    color: #f8f9fa;
+}
+
+/* Mengatur tampilan card kecil */
+.custom-small-card {
+    border: 3px solid #091F5B;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #c3c7d2;
+    margin-top: 5px;
+}
+
+.card-text.text-center {
+    size: 24px;
+    color: #000000;
+    font-weight: bold;
+}
+
+
+/* Mengatur tampilan search bar */
+.search-bar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.small-card {
-    background-color: #f7f7f7;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+.search-input {
+    text-align: center;
+    border: 2px solid #091F5B;
     border-radius: 5px;
-    padding: 5px 20px;
-    color: black;
-    background: #f7f7f7;
-    background-size: cover;
-    width: 200px;
-    display: flex;
-    justify-content: flex-end; /* Geser ke sebelah kanan */
-    align-items: center; /* Pusatkan vertikalnya jika diperlukan */
+    padding: 10px;
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+
+.btn-secondary {
+    background-color: #091F5B;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    font-size: 17px;
+}
+
+.btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #19347b;
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
+}
+
+.btn-secondary:hover::before {
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+
+.container-fluid {
+    background-color: #091F5B;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

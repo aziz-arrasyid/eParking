@@ -1,18 +1,29 @@
-function search() {
-    let input, filter, cards, cardContainer, span, i, txtValue;
-    input = document.getElementById("filter");
-    filter = input.value.toUpperCase();
-    cardContainer = document.getElementById("parkingData");
-    cards = cardContainer.getElementsByClassName("col-md-6");
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-input");
+  const searchButton = document.querySelector("button[type='button']");
+  const cards = document.querySelectorAll(".custom-card");
 
-    for (i = 0; i < cards.length; i++) {
-        span = cards[i].querySelector(".small-card span");
-        txtValue = span.textContent || span.innerText;
+  searchButton.addEventListener("click", function () {
+      const searchTerm = searchInput.value.toLowerCase();
 
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            cards[i].style.display = "";
-        } else {
-            cards[i].style.display = "none";
-        }
-    }
-}
+      let hasResults = false; // Menentukan apakah ada hasil pencarian
+
+      cards.forEach(function (card) {
+          const cardText = card.textContent.toLowerCase();
+          if (cardText.includes(searchTerm)) {
+              card.style.display = "block";
+              hasResults = true; // Ada hasil pencarian
+          } else {
+              card.style.display = "none";
+          }
+      });
+
+      // Menampilkan modal jika tidak ada hasil
+      const noResultModal = document.getElementById("no-result-modal");
+      if (!hasResults) {
+          noResultModal.style.display = "block";
+      } else {
+          noResultModal.style.display = "none";
+      }
+  });
+});

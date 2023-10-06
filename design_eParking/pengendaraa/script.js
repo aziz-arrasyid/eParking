@@ -1,22 +1,17 @@
-// Ambil elemen input pencarian
-const filterInput = document.getElementById('filter');
+document.addEventListener('DOMContentLoaded', function () {
+    const filterInput = document.getElementById('filter');
+    const cards = document.querySelectorAll('.custom-card');
 
-// Ambil semua kartu parkir
-const parkingCards = document.querySelectorAll('.parking-card');
+    filterInput.addEventListener('input', function () {
+        const searchTerm = filterInput.value.toLowerCase();
 
-// Tambahkan event listener untuk input pencarian
-filterInput.addEventListener('input', filterParkingCards);
-
-function filterParkingCards() {
-    const searchTerm = filterInput.value.toLowerCase();
-
-    parkingCards.forEach((card) => {
-        const cardText = card.textContent.toLowerCase();
-
-        if (cardText.includes(searchTerm)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
+        cards.forEach(function (card) {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     });
-}
+});
