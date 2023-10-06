@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('no_plat');
             $table->foreignId('transport_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('status',['paid', 'unpaid'])->default('unpaid');
             $table->foreignId('jukir_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->enum('status',['paid', 'unpaid'])->default('unpaid');
+            $table->string('payment_type')->default('cash');
             $table->timestamps();
         });
     }

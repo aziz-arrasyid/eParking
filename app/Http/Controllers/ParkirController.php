@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Jukir;
 use App\Models\Parkir;
+use App\Models\Payment;
 use App\Models\Transport;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ParkirController extends Controller
@@ -47,11 +49,15 @@ class ParkirController extends Controller
 
         $upperString = strtoupper($request->no_plat);
 
-        Parkir::create([
+        $parkir = Parkir::create([
             'transport_id' => $request->transport_id,
             'jukir_id' => $request->jukir_id,
             'no_plat' => $upperString,
         ]);
+
+        // dd('eParking'.$parkir->id.$request->jukir_id.rand());
+
+        
 
         return redirect()->route('data-parkir.index')->with('success','Data berhasil ditambahkan');
     }

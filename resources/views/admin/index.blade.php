@@ -222,6 +222,8 @@
                         '</div>';
                     },
                     searhable: false,
+                    orderable: false,
+
                 },
                 ],
                 initComplete: function(){

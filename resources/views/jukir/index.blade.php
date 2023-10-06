@@ -58,7 +58,7 @@
                         <label for="edit_kendaraan">Bayar Parkir</label>
                         <select class="form-control" name="status" id="edit_bayar_parkir">
                             <option value="paid">paid</option>
-                            <option value="unpaid">unpaid</option>
+                            <option value="unpaid" id="unpaid">unpaid</option>
                         </select>
                     </div>
                 </div>
@@ -70,7 +70,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal Add User  -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -131,6 +130,14 @@
         @if(Session('login'))
         toastr.success('{{ session('login') }}');
         @endif
+
+        axios.get(`/api/midtrans/notif-hook-get`).then(response => {
+            if(response.data.status == 'success'){
+                Swal.fire('Berhasil dibayar', '', 'success').then(() => {
+                    window.location.reload();
+                });
+            }
+        })
 
         @if(Session('success'))
         toastr.success('{{ session('success') }}');
@@ -218,11 +225,12 @@
 
                     return '<div class="d-flex flex-row">' +
                         '<button class="btn btn-primary btn-sm edit_modal" data-id="' + data.id + '" data-toggle="modal">Edit</button>' +
-                        '<a href="{{ route('payment') }}" class="btn btn-info ml-2 btn-sm ' + (data.status == 'paid' ? 'disabled' : '') + '" data-id="' + data.id + '" data-toggle="modal" data-target="#bayarModal">Bayar QRIS</a>' +
+                        '<button class="btn btn-info ml-2 btn-sm bayarQRIS ' + (data.status == 'paid' ? 'disabled' : '') + '" data-id="' + data.id + '" id="bayarQRIS">Bayar QRIS</button>' +
                         '<button class="btn btn-danger btn-sm ml-2 delete-modal" data-toggle="modal" data-id="' + data.id + '" data-target="#deleteModal">Delete</button>' +
                         '</div>';
                     },
                     searhable: false,
+                    orderable: false,
                 },
                 ],
                 initComplete: function(){
@@ -242,6 +250,10 @@
                             $('#edit_kendaraan').val(response.data.transport.id);
                             $('#edit_nomor_plat').val(response.data.no_plat);
                             $('#edit_bayar_parkir').val(response.data.status);
+                            if(response.data.payment_type == 'qris')
+                            {
+                                $('#unpaid').css('display', 'none');
+                            }
                         })
 
                         batalButtonEdit.on('click', function() {
@@ -333,6 +345,45 @@
                                 })
                             }
                         })
+                    })
+
+                    //fungsi bayar qris
+                    $(document).on('click', '#bayarQRIS', function() {
+                        let data_parkir = $(this).data('id');
+                        console.log(data_parkir);
+                        axios.post(`/dashboard-jukir/payment`, {id: data_parkir}).then(response => {
+                                console.log(response.data.snapToken);
+                                window.snap.pay(response.data.snapToken, {
+                                onSuccess: function(result){
+                                    /* You may add your own implementation here */
+                                    window.location.reload();
+                                },
+                                onPending: function(result){
+                                    /* You may add your own implementation here */
+                                    // alert("wating your payment!"); console.log(result);
+                                    console.log(result);
+                                },
+                                onError: function(result){
+                                    /* You may add your own implementation here */
+                                    // alert("payment failed!"); console.log(result);
+                                    // json_callback(result);
+                                    console.log('error');
+                                    // swal.fire('payment failed!', '', 'error').then(() => {
+                                    // })
+                                },
+                                onClose: function(){
+                                    /* You may add your own implementation here */
+                                    // alert('you closed the popup without finishing the payment');
+                                    swal.fire('you closed the popup without finishing the payment', '', 'info').then(() => {
+                                        window.location.reload();
+                                    })
+                                }
+                            })
+                        }).catch(error => {
+                            console.log(error);
+                        })
+
+
                     })
 
                 }

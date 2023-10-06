@@ -22,10 +22,19 @@
         @endif
 
         @if (Auth()->user()->role == 'jukir')
+        <li class="nav-heading">Data Parkir</li>
         <li class="nav-item">
             <a class="nav-link {{ Route::is('data-parkir.index') ? 'active' : '' }}" href="{{ route('data-parkir.index') }}">
                 <i class="ri-account-pin-circle-fill"></i>
                 <span>Data Parkir</span>
+            </a>
+        </li>
+
+        <li class="nav-heading">Data Payment</li>
+        <li class="nav-item">
+            <a class="nav-link {{ Route::is('data-payment.index') ? 'active' : '' }}" href="{{ route('data-payment.index') }}">
+                <i class="ri-account-pin-circle-fill"></i>
+                <span>Data Payment</span>
             </a>
         </li>
         @endif

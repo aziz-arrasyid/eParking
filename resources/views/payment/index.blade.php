@@ -1,32 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/assets/css/payment.css') }}">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+      src="https://app.midtrans.com/snap/snap.js"
+      data-client-key={{ env('MIDTRANS_CLIENT_KEY') }}></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+  </head>
 
-    <!-- link fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;1,500&family=Poppins&display=swap" rel="stylesheet">
+  <body>
+    <button id="pay-button">Pay!</button>
 
-    <title>Pilih Mode Pembayaran</title>
-</head>
-<body>
-    <main>
-        <h1>PINDAI KODE QR</h1>
-        <div class="container">
-            <div class="row">
-                <img src="qr.png" alt="kodeqr">
-                <h3 class="custom-font">Bagaimana cara scan QR ?</h3>
-                <ol class="tutorial">
-                    <li>Buka aplikasi pemindai</li>
-                    <li>Arahkan kamera ke qris</li>
-                    <li>Lalu lanjutkan pembayaran qris</li>
-                </ol>
-            </div>
-            <a href="{{ route('data-parkir.index') }}" class="back-button">Kembali</a>
-        </div>
-    </main>
-</body>
+    <script type="text/javascript">
+      // For example trigger on button clicked, or any time you need
+    //   console.log(`https://app.midtrans.com/snap/v1/transactions/e8d9c6de-a09f-4d5d-a5de-73dadc645ac5`);
+      var payButton = document.getElementById('pay-button');
+      payButton.addEventListener('click', function () {
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('b387fbab-8c2a-4437-990e-187beb74de5e', {
+          onSuccess: function(result){
+            /* You may add your own implementation here */
+            alert("payment success!"); console.log(result);
+          },
+          onPending: function(result){
+            /* You may add your own implementation here */
+            alert("wating your payment!"); console.log(result);
+          },
+          onError: function(result){
+            /* You may add your own implementation here */
+            alert("payment failed!"); console.log(result);
+          },
+          onClose: function(){
+            /* You may add your own implementation here */
+            alert('you closed the popup without finishing the payment');
+          }
+        })
+      });
+    </script>
+  </body>
 </html>

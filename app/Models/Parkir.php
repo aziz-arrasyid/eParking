@@ -20,4 +20,9 @@ class Parkir extends Model
     {
         return $this->belongsTo(Transport::class);
     }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }
