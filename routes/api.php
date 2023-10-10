@@ -21,7 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/midtrans-callback-unfinish', [dashboardJukirController::class, 'callbackUnfinish'])->name('callback');
+// Route::post('/midtrans-callback-unfinish', [dashboardJukirController::class, 'callbackUnfinish'])->name('callback');
 
 Route::post('midtrans/notif-hook', ParkirController::class);
 Route::get('midtrans/notif-hook-get', ParkirController::class);
+
+Route::post('/authenticate', [loginController::class,'authenticate'])->name('authenticate');
+

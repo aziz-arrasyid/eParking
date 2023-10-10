@@ -132,7 +132,6 @@
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
             @endif
-
         </ul>
     </nav><!-- End Icons Navigation -->
 

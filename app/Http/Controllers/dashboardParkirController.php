@@ -9,12 +9,23 @@ class dashboardParkirController extends Controller
 {
     public function index($no_plat)
     {
-        preg_match('/^([a-zA-Z]+)(\d+)([a-zA-Z]+)$/', $no_plat, $matches);
-        $data = strtoupper($matches[1]. ' '. $matches[2].' '. $matches[3]);
-        $historys = Parkir::where('no_plat', $data)->get();
-        return view('parkiran.index')->with([
-            'tes' => $data,
-            'History' => $historys,
-        ]);
+        // dd($no_plat, strtoupper($no_plat));
+        $Parkir = Parkir::where('no_plat', strtoupper($no_plat))->get();
+        if($Parkir->isEmpty())
+        {
+            // dd('kosong');
+            return redirect()->back()->with('error','Data tidak tersedia atau penulisan format plat salah');
+        }else{
+            // dd($parkir);
+            return view('history-kendaraan.index')->with([
+                'Parkir' => $Parkir,
+            ]);
+
+        }
+    }
+
+    public function search()
+    {
+        return view('search-kendaraan.index');
     }
 }
