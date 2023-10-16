@@ -10,7 +10,7 @@
                         <h5 class="card-title">Data Jukir</h5>
                         <div class="row justify-content-end">
                             <div class="col-auto">
-                                <button class="btn btn-success m-3" data-toggle="modal" data-target="#addModal">Add Jukir</button>
+                                <button class="btn btn-success m-3" data-toggle="modal" data-target="#addModal">Tambah Jukir</button>
                             </div>
                         </div>
                         <!-- Default Table -->
@@ -32,7 +32,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel">Ubah Data</h5>
                 <button type="button" id="closeXEdit" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -43,7 +43,7 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="editName">nama</label>
+                        <label for="editName">Nama</label>
                         <input type="text" name="name" class="form-control" id="editName">
                     </div>
                     <div class="form-group">
@@ -51,11 +51,11 @@
                         <input type="text" name="username" class="form-control" id="editUsername">
                     </div>
                     <div class="form-group">
-                        <label for="editAge">Age</label>
+                        <label for="editAge">Umur</label>
                         <input type="text" name="age" class="form-control" id="editAge">
                     </div>
                     <div class="form-group">
-                        <label for="editPhone">Phone Number</label>
+                        <label for="editPhone">Nomor HP</label>
                         <input type="text" name="phoneNumber" class="form-control" id="editPhone">
                     </div>
                 </div>
@@ -73,7 +73,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Add Jukir</h5>
+                <h5 class="modal-title" id="addModalLabel">Tambah Jukir</h5>
                 <button type="button" id="closeXAdd" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -83,15 +83,15 @@
                 <form action="{{ route('data-jukir.store') }}" method="POST" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="addUsername">name</label>
+                        <label for="addUsername">Nama</label>
                         <input type="text" name="name" class="form-control" id="add_username">
                     </div>
                     <div class="form-group">
-                        <label for="addAge">Age</label>
+                        <label for="addAge">Umur</label>
                         <input type="number" name="age" class="form-control" id="add_age">
                     </div>
                     <div class="form-group">
-                        <label for="addPhone">Phone Number</label>
+                        <label for="addPhone">Nomor HP</label>
                         <input type="number" name="phoneNumber" class="form-control" id="add_phone">
                     </div>
                 </div>

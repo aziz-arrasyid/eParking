@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\ParkirController;
+use App\Http\Controllers\Api\JukirControllerApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\dashboardJukirController;
-use App\Http\Controllers\handlePaymentNotif;
+use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\ParkirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,11 @@ use App\Http\Controllers\handlePaymentNotif;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-// Route::post('/midtrans-callback-unfinish', [dashboardJukirController::class, 'callbackUnfinish'])->name('callback');
-
+//api unntuk payment gateway website
 Route::post('midtrans/notif-hook', ParkirController::class);
-Route::get('midtrans/notif-hook-get', ParkirController::class);
-
-Route::post('/authenticate', [loginController::class,'authenticate'])->name('authenticate');
-
+//api untuk login pada android
+Route::post('/authenticate', [LoginController::class,'authenticate'])->name('authenticate');
+//apiResource jukir CRUD pada android
+Route::apiResources([
+    'jukir' => JukirControllerApi::class,
+]);

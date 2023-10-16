@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/history-parkir/{no_plat}', [dashboardParkirController::class, 'index'])->name('parkir');
 Route::get('/', [dashboardParkirController::class, 'search'])->name('parkir.search');
+Route::get('/filter', [dashboardParkirController::class, 'filter'])->name('filter');
 
 
 Route::get('/paymentTest', [dashboardJukirController::class, 'paymentTest'])->name('paymentTest');

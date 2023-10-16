@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-8">
                 <div class="search-bar">
-                    <input type="text" id="filter" class="search-input form-control" placeholder="Cari No Plat...">
+                    <input type="text" id="filter" class="search-input form-control" type="text" placeholder="Cari No Plat...">
                     <i class="fas fa-user-circle"></i>
                 </div>
             </div>
@@ -29,7 +29,7 @@
     <!-- Card dengan data kendaraan -->
     <div class="container">
         {{-- {{ dd($parkir) }} --}}
-        <div class="row">
+        <div class="row" id="content">
             @foreach ($Parkir as $parkir)
             <div class="col-md-4">
                 <div class="card mt-5 custom-card">
@@ -51,144 +51,26 @@
                 </div>
             </div>
             @endforeach
-            {{-- <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">QL 44 E</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">TL 2113 RR</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">EE 122 4</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">RE 22 Y</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">TG 342 T</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">FT 45 YU</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">SR 3421 ZX</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mt-5 custom-card">
-                    <div class="card-body">
-                        <h5 class="card-title">PLAT NOMOR :</h5>
-                        <div class="col">
-                            <div class="card custom-small-card text-center">
-                                <div class="card-body">
-                                    <p class="card-text text-center">S 1 R</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-text">Harga Parkir: $5</p>
-                        <p class="card-text">Durasi Parkir: 2 jam</p>
-                        <p class="card-text">Jenis Kendaraan: Mobil</p>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#filter').on('keyup', function() {
+                var keyword = $(this).val().toLowerCase();
+                $('#content > *').each(function() {
+                    var content = $(this).text().toLowerCase();
+                    if (content.includes(keyword)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

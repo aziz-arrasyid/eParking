@@ -31,7 +31,7 @@
                         <h6>{{ Auth()->user()->username }}</h6>
                         <span>{{ Auth()->user()->role }}</span>
                     </li>
-                    <li>
+                    {{-- <li>
                         <hr class="dropdown-divider">
                     </li>
 
@@ -60,7 +60,7 @@
                             <i class="bi bi-question-circle"></i>
                             <span>Need Help?</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -68,7 +68,7 @@
                     <li>
                         <a class="dropdown-item d-flex align-items-center logout" href="#">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
+                            <span>Log Out</span>
                         </a>
                     </li>
 
@@ -88,7 +88,7 @@
                         <h6>{{ $DataDiri->name }}</h6>
                         <span>{{ $DataDiri->user->role }}</span>
                     </li>
-                    <li>
+                    {{-- <li>
                         <hr class="dropdown-divider">
                     </li>
 
@@ -117,7 +117,7 @@
                             <i class="bi bi-question-circle"></i>
                             <span>Need Help?</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -125,7 +125,7 @@
                     <li>
                         <a class="dropdown-item d-flex align-items-center logout" href="#">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
+                            <span>Log Out</span>
                         </a>
                     </li>
 

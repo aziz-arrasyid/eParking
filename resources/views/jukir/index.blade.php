@@ -31,7 +31,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel">Ubah Data</h5>
                 <button type="button" id="closeXEdit" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -50,7 +50,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="edit_nomor_plat">Nomor Plat</label>
+                        <label for="edit_nomor_plat">No. Plat</label>
                         <input type="text" class="form-control" name="no_plat" id="edit_nomor_plat">
                         <input type="text" class="form-control" readonly value="{{ $DataDiri->id }}" name="jukir_id" id="edit_jukir">
                     </div>
@@ -93,7 +93,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="add_nomor_plat">Nomor Plat</label>
+                        <label for="add_nomor_plat">No. Plat</label>
                         <input type="text" class="form-control" name="no_plat" id="add_nomor_plat">
                         <input type="text" class="form-control" readonly value="{{ $DataDiri->id }}" name="jukir_id" id="add_jukir">
                     </div>
@@ -202,7 +202,7 @@
                 orderable: false,
             },
             {
-                title: 'No.Plat',
+                title: 'No. Plat',
                 data: 'no_plat'
             },
             {
@@ -215,7 +215,7 @@
                 render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp. ' )
             },
             {
-                title: 'status',
+                title: 'Status',
                 data: 'status'
             },
             {
