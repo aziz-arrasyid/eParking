@@ -28,9 +28,4 @@ class dashboardParkirController extends Controller
     {
         return view('search-kendaraan.index');
     }
-
-    public function filter($keyword)
-    {
-
-    }
 }
