@@ -75,16 +75,58 @@ class JukirControllerApi extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $jukir)
+    public function update(Request $request, Jukir $jukir)
     {
-        //
+        $validator = Validator::make($request->all(),[
+                'name' => 'required',
+                'username' => 'required',
+                'age' => 'required',
+                'phoneNumber' => 'required',
+            ],
+            [
+                'name.required' => 'Nama jukir tidak boleh kosong',
+                'username.required' => 'Username jukir tidak boleh kosong',
+                'age.required' => 'Umur jukir tidak boleh kosong',
+                'phoneNumber.required' => 'Nomor HP jukir tidak boleh kosong',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 400);
+        }
+
+        // Cek jika ada pengguna lain dengan username yang sama
+        $existingUser = User::where('username', $request->username)
+                            ->where('id', '!=', $jukir->user->id) // Excluding the current user
+                            ->first();
+
+        if ($existingUser) {
+            return response()->json(['error' => 'Username sudah digunakan oleh jukir lain'], 422);
+        }
+
+        $jukir->update([
+            'name' => $request->name,
+            'age' => $request->age,
+            'phoneNumber' => $request->phoneNumber,
+        ]);
+
+        if ($request->username != $jukir->user->username) {
+            $jukir->user->update([
+                'username' => $request->username,
+            ]);
+        }
+
+        return response()->json(['message' => 'Data berhasil di update', 'data' => $jukir]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $jukir)
+    public function destroy(Jukir $jukir)
     {
-        //
+        User::where('id', $jukir->user_id)->delete();
+
+        $jukir->delete();
+        return response()->json(['message' => 'Data berhasil di hapus']);
     }
 }
