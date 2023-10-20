@@ -16,9 +16,9 @@ class userSeeder extends Seeder
         // 0 = admin, 1 = jukir
         $dataUsers = [
             [
-                'username' => 'admin',
+                'username' => 'eParking',
                 'role' => '0',
-                'password' => bcrypt('admin'),
+                'password' => bcrypt('SMKN4'),
             ],
             // [
             //     'username' => 'jukir',

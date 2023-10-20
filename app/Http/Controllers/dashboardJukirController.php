@@ -113,26 +113,8 @@ class dashboardJukirController extends Controller
 
     }
 
-    public function callback(Request $request)
-    {
-        // Parkir::find($request->id)->update([
-        //     'status' => 'paid',
-        //     'payment_type' => 'QRIS',
-        // ]);
-
-        return response()->json();
-    }
-
-    // public function callbackUnfinish(Request $request)
-    // {
-    //     dd($request->all());
-    // }
-
     public function paymentTest(Request $request)
     {
-        // dd($request->all());
-        // return response()->json(['snapToken' => $snapToken]);
-
         $snapToken = "70c9d0f8-5fec-44c7-bf58-f58a53878294";
 
         $response = Http::withHeaders([
@@ -141,13 +123,6 @@ class dashboardJukirController extends Controller
 
             $transactionData = $response->json();
             dd($response->status());
-            // dd($transactionData['status_code']);
-            // if($response->status() == 400)
-            // {
-            //     dd('gagal');
-            // }
-
-        // dd($response);
         return view('payment.index')->with([
             'snapToken' => 'd5446389-8da7-439c-a2b3-e69485179d86',
         ]);

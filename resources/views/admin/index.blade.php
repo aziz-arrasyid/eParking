@@ -83,15 +83,15 @@
                 <form action="{{ route('data-jukir.store') }}" method="POST" id="form-add" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="addUsername">Nama</label>
+                        <label for="add_username">Nama</label>
                         <input type="text" name="name" class="form-control" id="add_username">
                     </div>
                     <div class="form-group">
-                        <label for="addAge">Umur</label>
+                        <label for="add_age">Umur</label>
                         <input type="number" name="age" class="form-control" id="add_age">
                     </div>
                     <div class="form-group">
-                        <label for="addPhone">Nomor HP</label>
+                        <label for="add_phone">Nomor HP</label>
                         <input type="number" name="phoneNumber" class="form-control" id="add_phone">
                     </div>
                 </div>

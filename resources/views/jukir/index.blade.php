@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="edit_nomor_plat">No. Plat</label>
                         <input type="text" class="form-control" name="no_plat" id="edit_nomor_plat">
-                        <input type="text" class="form-control" readonly value="{{ $DataDiri->id }}" name="jukir_id" id="edit_jukir">
+                        <input type="text" class="form-control" hidden readonly value="{{ $DataDiri->id }}" name="jukir_id" id="edit_jukir">
                     </div>
                     <div class="form-group">
                         <label for="edit_kendaraan">Bayar Parkir</label>
@@ -95,7 +95,7 @@
                     <div class="form-group">
                         <label for="add_nomor_plat">No. Plat</label>
                         <input type="text" class="form-control" name="no_plat" id="add_nomor_plat">
-                        <input type="text" class="form-control" readonly value="{{ $DataDiri->id }}" name="jukir_id" id="add_jukir">
+                        <input type="text" class="form-control" hidden readonly value="{{ $DataDiri->id }}" name="jukir_id" id="add_jukir">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,14 +130,6 @@
         @if(Session('login'))
         toastr.success('{{ session('login') }}');
         @endif
-
-        axios.get(`/api/midtrans/notif-hook-get`).then(response => {
-            if(response.data.status == 'success'){
-                Swal.fire('Berhasil dibayar', '', 'success').then(() => {
-                    window.location.reload();
-                });
-            }
-        })
 
         @if(Session('success'))
         toastr.success('{{ session('success') }}');

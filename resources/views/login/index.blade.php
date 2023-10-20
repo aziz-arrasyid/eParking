@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="credits">
-                            created by <a href="https://smkn4-tanjungpinang.sch.id/">SMKN4 TanjungPinang</a>
+                            created by <a href="https://smkn4-tanjungpinang.sch.id/" target="_blank">SMKN4 TanjungPinang</a>
                         </div>
 
                     </div>
