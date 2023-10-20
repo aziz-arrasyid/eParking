@@ -23,10 +23,10 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if(Auth()->user()->role == 'admin')
                 {
-                    return redirect()->route('admin');
+                    return redirect()->route('data-jukir.index');
                 }elseif(Auth()->user()->role == 'jukir')
                 {
-                    return redirect()->route('jukir');
+                    return redirect()->route('data-parkir.index');
                 }
             }
         }

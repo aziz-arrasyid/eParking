@@ -30,9 +30,9 @@ class loginController extends Controller
         if (auth()->attempt(['username' => $input['username'], 'password' => $input['password']])) {
             $name = str_replace('_', '', strtolower(Auth::user()->username));
             if (auth()->user()->role == 'admin') {
-                return redirect()->route('admin')->with('login', 'Selamat datang '. $name);
+                return redirect()->route('data-jukir.index')->with('login', 'Selamat datang '. $name);
             } elseif (auth()->user()->role == 'jukir') {
-                return redirect()->route('jukir')->with('login', 'Selamat datang ' . $name);
+                return redirect()->route('data-parkir.index')->with('login', 'Selamat datang ' . $name);
             }
         }else{
             return redirect()->route('login')->with('error-salah', 'username atau password salah !');
