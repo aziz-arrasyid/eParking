@@ -9,11 +9,17 @@
     <!-- Tambahkan tautan ke Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
     <!-- Tambahkan tautan ke file CSS eksternal -->
     <link rel="stylesheet" href="{{ asset('/assets/css/search_kendaraan.css') }}">
 </head>
 <body>
     <!-- content -->
+    <div class="d-flex justify-content-end m-2">
+        <a href="{{ route('login') }}" class="link_atas btn-secondary-atas p-2">
+            <span class="bx bxs-arrow-to-right">Login Admin/Jukir</span>
+        </a>
+    </div>
     <div class="container text-center mt-2 container-scroll">
         <img src="{{ asset('/assets/img/logo_search.png') }}" alt="Logo" class="logo mb-5">
         <div class="mb-2">
@@ -26,11 +32,14 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container-fluid">
-            <a href="https://www.instagram.com/eparkingtanjungpinang/" class="link" target="_blank">
-                <p>&copy; <span id="currentYear"></span> RPL SMKN 4 Tanjungpinang</p>
-            </a>
+            <span id="currentYear">
+                <a href="https://www.instagram.com/eparkingtanjungpinang/" class="link" target="_blank">
+                    &copy; RPL SMKN 4 Tanjungpinang
+                </a>
+            </span>
         </div>
     </footer>
+
 
     <!-- Include jQuery dan Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

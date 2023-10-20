@@ -1,5 +1,5 @@
 .container-fluid {
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Mengatur tampilan card kendaraan */
@@ -92,6 +92,19 @@
     width: 100%;
 }
 
+.btn-secondary-atas{
+    background-color: #19347b;
+    border-radius: 10px;
+    transition: color 0.5s;
+}
+
+.btn-secondary-atas:hover{
+    background-color: white;
+    color: #19347b !important;
+    transition: color 0.5s;
+
+}
+
 .btn-secondary:hover {
     color: #ffffff;
     transition: color 0.3s;
@@ -111,4 +124,8 @@
 .link{
     color: #fff;
     text-decoration: none;
+}
+
+.link_atas{
+    color: white;
 }
