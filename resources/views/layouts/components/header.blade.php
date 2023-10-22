@@ -53,14 +53,14 @@
                     </li>
                     <li>
                         <hr class="dropdown-divider">
-                    </li>
+                    </li> --}}
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('profile.index') }}">
                             <i class="bi bi-question-circle"></i>
-                            <span>Need Help?</span>
+                            <span>My Profile</span>
                         </a>
-                    </li> --}}
+                    </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -110,14 +110,14 @@
                     </li>
                     <li>
                         <hr class="dropdown-divider">
-                    </li>
+                    </li> --}}
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('profile.index') }}">
                             <i class="bi bi-question-circle"></i>
-                            <span>Need Help?</span>
+                            <span>My Profile</span>
                         </a>
-                    </li> --}}
+                    </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

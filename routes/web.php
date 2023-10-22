@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChangePasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardAdminController;
@@ -42,6 +43,8 @@ Route::middleware(['auth', 'user-role:jukir'])->prefix('dashboard-jukir')->group
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/profile', [ChangePasswordController::class, 'index'])->name('profile.index');
+    Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('password.change');
 });
 
 Route::get('/history-parkir/{no_plat}', [dashboardParkirController::class, 'index'])->name('parkir');

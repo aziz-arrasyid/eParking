@@ -92,13 +92,13 @@
     width: 100%;
 }
 
-.btn-secondary-atas{
+.btn-secondary-atas {
     background-color: #19347b;
     border-radius: 10px;
     transition: color 0.5s;
 }
 
-.btn-secondary-atas:hover{
+.btn-secondary-atas:hover {
     background-color: white;
     color: #19347b !important;
     transition: color 0.5s;

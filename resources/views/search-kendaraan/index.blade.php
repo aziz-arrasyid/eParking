@@ -9,7 +9,7 @@
     <!-- Tambahkan tautan ke Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/boxicons/css/boxicons.min.css') }}">
     <!-- Tambahkan tautan ke file CSS eksternal -->
     <link rel="stylesheet" href="{{ asset('/assets/css/search_kendaraan.css') }}">
 </head>
@@ -17,7 +17,7 @@
     <!-- content -->
     <div class="d-flex justify-content-end m-2">
         <a href="{{ route('login') }}" class="link_atas btn-secondary-atas p-2">
-            <span class="bx bxs-arrow-to-right">Login Admin/Jukir</span>
+            <span class="bx bxs-arrow-to-right">Login</span>
         </a>
     </div>
     <div class="container text-center mt-2 container-scroll">
