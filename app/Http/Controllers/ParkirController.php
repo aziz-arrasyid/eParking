@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Jukir;
 use App\Models\Parkir;
 use App\Models\Payment;
 use App\Models\Transport;
+use App\Models\GajiBulanan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,7 @@ class ParkirController extends Controller
      */
     public function index()
     {
-        return view('jukir.index')->with([
+        return view('jukir.dataParkir.index')->with([
             'DataDiri' => Jukir::where('user_id', auth()->user()->id)->first(),
             'Kendaraan' => Transport::all(),
         ]);
@@ -56,9 +58,6 @@ class ParkirController extends Controller
         ]);
 
         // dd('eParking'.$parkir->id.$request->jukir_id.rand());
-
-        
-
         return redirect()->route('data-parkir.index')->with('success','Data berhasil ditambahkan');
     }
 
@@ -106,6 +105,64 @@ class ParkirController extends Controller
             'no_plat' => $upperString,
             'status' => $request->status,
         ]);
+
+        $transport = Transport::find($request->transport_id);
+
+        $untung = $transport->hargaParkir - $transport->pajak;
+
+        $now = Carbon::now();
+            $month = $now->month;
+            $year = $now->year;
+            $monthNameId = [
+                'Desember',
+                'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+            ];
+
+        if( $request->status == 'paid'){
+            $data_parkir->update([
+                'untungBersih' => $untung,
+            ]);
+
+            if(!GajiBulanan::where('bulan', $monthNameId[$month]. ' '. $year)->where('jukir_id', $request->jukir_id)->exists()){
+                if($data_parkir->payment_type == 'cash'){
+                    GajiBulanan::create([
+                        'jukir_id' => $request->jukir_id,
+                        'bulan' => $monthNameId[$month]. ' '. $year,
+                        'cashPajak' => $data_parkir->transport->pajak,
+                    ]);
+                }
+            }else{
+                $gajiBulanan = GajiBulanan::where('jukir_id', $request->jukir_id)->where('bulan', $monthNameId[$month].' '. $year)->first();
+                if($data_parkir->payment_type == 'cash'){
+                    $gajiBulanan->update([
+                        'cashPajak' => $gajiBulanan->cashPajak + $data_parkir->transport->pajak,
+                    ]);
+                }
+            }
+        }else{
+            $data_parkir->update([
+                'untungBersih' => 0,
+            ]);
+
+            $gajiBulanan = GajiBulanan::where('jukir_id', $request->jukir_id)->where('bulan', $monthNameId[$month].' '. $year)->first();
+                if($data_parkir->payment_type == 'cash'){
+                    if($gajiBulanan->cashPajak > 0){
+                        $gajiBulanan->update([
+                            'cashPajak' => $gajiBulanan->cashPajak - $data_parkir->transport->pajak,
+                        ]);
+                    }
+                }
+        }
 
         return response()->json();
     }

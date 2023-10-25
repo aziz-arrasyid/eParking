@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Models\Parkir;
 use App\Models\Payment;
+use App\Models\GajiBulanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -50,6 +52,40 @@ class ParkirController extends Controller
 
         if($transactionStatus == 'settlement')
         {
+
+            $now = Carbon::now();
+            $month = $now->month;
+            $year = $now->year;
+            $monthNameId = [
+                'Desember',
+                'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+            ];
+
+            $untung = $parkir->transport->hargaParkir - $parkir->transport->pajak;
+
+            if(!GajiBulanan::where('bulan', $monthNameId[$month]. ' '. $year)->where('jukir_id', $parkir->jukir_id)->exists()){
+                GajiBulanan::create([
+                        'jukir_id' => $request->jukir_id,
+                        'bulan' => $monthNameId[$month]. ' '. $year,
+                        'cashUpah' => $untung,
+                    ]);
+            }else{
+                $gajiBulanan = GajiBulanan::where('jukir_id', $parkir->jukir_id)->where('bulan', $monthNameId[$month].' '. $year)->first();
+                 $gajiBulanan->update([
+                        'cashUpah' => $gajiBulanan->cashUpah + $untung,
+                    ]);
+            }
+
             $parkir->status = 'paid';
             $parkir->payment_type = $paymentType;
             $parkir->save();

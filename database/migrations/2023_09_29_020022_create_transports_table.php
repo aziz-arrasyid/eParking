@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('transports', function (Blueprint $table) {
             $table->id();
             $table->string('jenisKendaraan');
-            $table->string('hargaParkir');
+            $table->integer('hargaParkir');
+            $table->integer('pajak');
             $table->timestamps();
         });
     }

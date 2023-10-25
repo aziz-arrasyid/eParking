@@ -22,6 +22,7 @@
                                             <th scope="col">No</th>
                                             <th scope="col">Jenis Kendaraan</th>
                                             <th scope="col">Harga Parkir</th>
+                                            <th scope="col">Harga Pajak</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -31,6 +32,7 @@
                                             <th scope="row">{{ $loop->index + 1 }}</th>
                                             <td>{{ $transport->jenisKendaraan }}</td>
                                             <td>Rp. {{ number_format($transport->hargaParkir, 0, ',', '.') }}</td>
+                                            <td>Rp. {{ number_format($transport->pajak, 0, ',', '.') }}</td>
                                             <td>
                                                 <div class="d-flex flex-row">
                                                     <button class="btn btn-primary btn-sm edit_kendaraan" data-id="{{ $transport->id }}" data-toggle="modal">Edit</button>
@@ -69,7 +71,11 @@
                         </div>
                         <div class="form-group">
                             <label for="edit_harga_parkir">Harga Parkir</label>
-                            <input type="text" name="hargaParkir" class="form-control" id="edit_harga_parkir">
+                            <input type="number" name="hargaParkir" class="form-control" id="edit_harga_parkir">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_harga_pajak">Harga pajak</label>
+                            <input type="number" name="pajak" class="form-control" id="edit_harga_pajak">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -100,7 +106,11 @@
                         </div>
                         <div class="form-group">
                             <label for="add_harga_parkir">Harga Parkir</label>
-                            <input type="text" name="hargaParkir" class="form-control" id="add_harga_parkir">
+                            <input type="number" name="hargaParkir" class="form-control" id="add_harga_parkir">
+                        </div>
+                        <div class="form-group">
+                            <label for="add_harga_pajak">Harga pajak</label>
+                            <input type="number" name="pajak" class="form-control" id="add_harga_pajak">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -145,6 +155,7 @@
         document.getElementById('form-add-kendaraan').addEventListener('submit', function(event) {
             localStorage.setItem('jenisKendaraan', $('#add_jenis_kendaraan').val());
             localStorage.setItem('hargaParkir', $('#add_harga_parkir').val());
+            localStorage.setItem('pajak', $('#add_harga_pajak').val());
         });
 
         @if(Session('success'))
@@ -162,6 +173,7 @@
         Swal.fire('Data gagal ditambah', errorMessage, 'error').then(() => {
             $('#add_jenis_kendaraan').val(localStorage.getItem('jenisKendaraan'));
             $('#add_harga_parkir').val(localStorage.getItem('hargaParkir'));
+            $('#add_harga_pajak').val(localStorage.getItem('pajak'));
             modalAdd.modal('show');
         });
 
@@ -171,17 +183,20 @@
                modalAdd.modal('hide');
                $('#add_jenis_kendaraan').val(null);
                $('#add_harga_parkir').val(null);
+               $('#add_harga_pajak').val(null);
             }
         });
         batalButton.on('click', function() {
             modalAdd.modal('hide');
             $('#add_jenis_kendaraan').val(null);
             $('#add_harga_parkir').val(null);
+            $('#add_harga_pajak').val(null);
         });
         XButton.on('click', function() {
             modalAdd.modal('hide');
             $('#add_jenis_kendaraan').val(null);
             $('#add_harga_parkir').val(null);
+            $('#add_harga_pajak').val(null);
         });
 
         //fungsi tampilkan data edit jenis kendaraan
@@ -192,6 +207,7 @@
             .then(response => {
                 $('#edit_jenis_kendaraan').val(response.data.jenisKendaraan);
                 $('#edit_harga_parkir').val(response.data.hargaParkir);
+                $('#edit_harga_pajak').val(response.data.pajak);
             })
             .catch(error => {
                 console.error('error fetching data: ', error)
@@ -204,10 +220,12 @@
 
             let jenisKendaraan = $('#edit_jenis_kendaraan').val();
             let hargaParkir = $('#edit_harga_parkir').val();
+            let pajak = $('#edit_harga_pajak').val();
 
             axios.put(`/dashboard-admin/data-kendaraan/${data_kendaraan}`, {
                 jenisKendaraan: jenisKendaraan,
-                hargaParkir: hargaParkir
+                hargaParkir: hargaParkir,
+                pajak: pajak
             })
             .then(response => {
                 modalEdit.modal('hide');

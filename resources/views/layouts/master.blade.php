@@ -54,7 +54,17 @@
     <!-- ======= #main ======= -->
     <main id="main" class="main">
         <div class="container">
-            <h1 class="mt-3">Dashboard</h1>
+            @if(Route::is('data-jukir.index'))
+                <h1 class="mt-3">Data Jukir</h1>
+            @elseif(Route::is('data-kendaraan.index'))
+                <h1 class="mt-3">Data Kendaraan</h1>
+            @elseif(Route::is('data-gaji-bulanan.index'))
+                <h1 class="mt-3">Data Gaji Bulanan</h1>
+            @elseif(Route::is('jukir'))
+                <h1 class="mt-3">Dashboard</h1>
+            @elseif(Route::is('data-parkir.index'))
+                <h1 class="mt-3">Data Parkir</h1>
+            @endif
             <nav>
                 @if (Auth()->user()->role == 'admin')
                 <ol class="breadcrumb">
@@ -64,6 +74,8 @@
                             Data Jukir
                         @elseif(Route::is('data-kendaraan.index'))
                             Data Kendaraan
+                        @elseif(Route::is('data-gaji-bulanan.index'))
+                            Data Gaji Bulanan
                         @endif
                     </li>
                 </ol>

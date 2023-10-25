@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardAdminController;
 use App\Http\Controllers\dashboardJukirController;
 use App\Http\Controllers\dashboardParkirController;
+use App\Http\Controllers\GajiBulananController;
 use App\Http\Controllers\JukirController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\ParkirController;
@@ -30,7 +31,9 @@ Route::middleware(['auth', 'user-role:admin'])->prefix('dashboard-admin')->group
     Route::get('/', [dashboardAdminController::class, 'index'])->name('admin');
     Route::resource('data-jukir', JukirController::class);
     Route::get('/server', [dashboardAdminController::class, 'serverSide'])->name('server.jukir');
+    Route::get('/serverUpah', [dashboardAdminController::class, 'serverSideUpah'])->name('server.upah');
     Route::resource('data-kendaraan', TransportController::class);
+    Route::resource('data-gaji-bulanan', GajiBulananController::class);
 });
 
 Route::middleware(['auth', 'user-role:jukir'])->prefix('dashboard-jukir')->group(function() {

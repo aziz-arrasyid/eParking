@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parkirs', function (Blueprint $table) {
+        Schema::create('gaji_bulanans', function (Blueprint $table) {
             $table->id();
-            $table->string('no_plat');
-            $table->foreignId('transport_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('jukir_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('status',['paid', 'unpaid'])->default('unpaid');
-            $table->integer('untungBersih')->default(0);
-            $table->string('payment_type')->default('cash');
+            $table->integer('cashPajak')->default(0);
+            $table->integer('cashUpah')->default(0);
+            $table->string('bulan');
+            $table->string('statusUpah')->default('Belum menerima upah');
+            $table->string('statusPajak')->default('Belum memberi pajak');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parkirs');
+        Schema::dropIfExists('gaji_bulanans');
     }
 };

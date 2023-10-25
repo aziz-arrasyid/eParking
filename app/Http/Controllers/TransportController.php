@@ -34,10 +34,12 @@ class TransportController extends Controller
         $request->validate([
                 'jenisKendaraan' => 'required',
                 'hargaParkir' => 'required',
+                'pajak' => 'required',
             ],
             [
                 'jenisKendaraan.required' => 'Jenis kendaraan tidak boleh kosong',
                 'hargaParkir.required' => 'Harga parkir tidak boleh kosong',
+                'pajak.required' => 'Harga pajak tidak boleh kosong',
             ]
         );
 
@@ -70,10 +72,12 @@ class TransportController extends Controller
         $request->validate([
                 'jenisKendaraan' => 'required',
                 'hargaParkir' => 'required',
+                'pajak' => 'required',
             ],
             [
                 'jenisKendaraan.required' => 'Jenis kendaraan tidak boleh kosong',
                 'hargaParkir.required' => 'Harga parkir tidak boleh kosong',
+                'pajak.required' => 'Harga pajak tidak boleh kosong',
             ]
         );
 

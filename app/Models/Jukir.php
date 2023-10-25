@@ -20,4 +20,9 @@ class Jukir extends Model
     {
         return $this->hasMany(Parkir::class);
     }
+
+    public function GajiBulanan()
+    {
+        return $this->hasMany(GajiBulanan::class);
+    }
 }

@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                     return redirect()->route('data-jukir.index');
                 }elseif(Auth()->user()->role == 'jukir')
                 {
-                    return redirect()->route('data-parkir.index');
+                    return redirect()->route('jukir');
                 }
             }
         }

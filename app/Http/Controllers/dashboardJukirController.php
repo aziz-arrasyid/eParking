@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GajiBulanan;
 use Midtrans\Config;
 use App\Models\Jukir;
 use App\Models\Parkir;
@@ -14,9 +15,14 @@ use Yajra\DataTables\Facades\DataTables;
 class dashboardJukirController extends Controller
 {
     public function index(){
+        $DataDiri = Jukir::where('user_id', auth()->user()->id)->first();
+        $gajiBulanan = GajiBulanan::where('jukir_id', $DataDiri->id)->get();
+        // dd($gajiBulanan, $DataDiri);
+
         return view('jukir.index')->with([
-            'DataDiri' => Jukir::where('user_id', auth()->user()->id)->first(),
+            'DataDiri' => $DataDiri,
             'Kendaraan' => Transport::all(),
+            'GajiBulanan' => $gajiBulanan,
         ]);
     }
 
