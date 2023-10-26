@@ -23,17 +23,16 @@ class userSeeder extends Seeder
                 'role' => '0',
                 'password' => bcrypt('SMKN4'),
             ],
-            [
-                'username' => 'jukir',
-                'role' => '1',
-                'password' => bcrypt('jukir'),
-            ],
+            // [
+            //     'username' => 'jukir',
+            //     'role' => '1',
+            //     'password' => bcrypt('jukir'),
+            // ],
         ];
 
         foreach($dataUsers as $dataUser)
         {
             User::create($dataUser);
-
         }
 
         // $dataTransports = [

@@ -31,7 +31,7 @@ class dashboardJukirController extends Controller
         $jukir = Jukir::where('user_id', Auth()->user()->id)->first();
 
 
-        $query = Parkir::with('transport', 'jukir')->where('jukir_id', $jukir->id); // Menggunakan Eloquent 'with' untuk mengambil data relasi 'user'
+        $query = Parkir::with('transport', 'jukir')->where('jukir_id', $jukir->id)->orderBy('id', 'desc'); // Menggunakan Eloquent 'with' untuk mengambil data relasi 'user'
 
         return DataTables::of($query)->make(true);
         // return DataTables::of(Student::query())->make(true);

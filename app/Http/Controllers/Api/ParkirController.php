@@ -52,7 +52,6 @@ class ParkirController extends Controller
 
         if($transactionStatus == 'settlement')
         {
-
             $now = Carbon::now();
             $month = $now->month;
             $year = $now->year;
@@ -75,7 +74,7 @@ class ParkirController extends Controller
 
             if(!GajiBulanan::where('bulan', $monthNameId[$month]. ' '. $year)->where('jukir_id', $parkir->jukir_id)->exists()){
                 GajiBulanan::create([
-                        'jukir_id' => $request->jukir_id,
+                        'jukir_id' => $parkir->jukir_id,
                         'bulan' => $monthNameId[$month]. ' '. $year,
                         'cashUpah' => $untung,
                     ]);
