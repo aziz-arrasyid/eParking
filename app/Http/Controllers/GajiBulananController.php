@@ -32,7 +32,9 @@ class GajiBulananController extends Controller
         ];
         // dd($now->month, $monthNameId[$month], $year, $monthNameId[$month]. ' '. $year, $now);
 
-        return view('admin.dataGajiBulanan.index');
+        return view('admin.dataGajiBulanan.index')->with([
+            'title' => 'Data Upah'
+        ]);
     }
 
     /**

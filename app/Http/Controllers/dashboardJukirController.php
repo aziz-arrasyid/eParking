@@ -20,6 +20,7 @@ class dashboardJukirController extends Controller
         // dd($gajiBulanan, $DataDiri);
 
         return view('jukir.index')->with([
+            'title' => 'dashboard | jukir',
             'DataDiri' => $DataDiri,
             'Kendaraan' => Transport::all(),
             'GajiBulanan' => $gajiBulanan,

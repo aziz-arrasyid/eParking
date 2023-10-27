@@ -12,7 +12,9 @@ class dashboardAdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        return view('admin.index')->with([
+            'title' => 'dashboard|admin'
+        ]);
     }
 
     public function serverSide()

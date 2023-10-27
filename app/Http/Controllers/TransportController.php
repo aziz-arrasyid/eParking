@@ -14,6 +14,7 @@ class TransportController extends Controller
     public function index()
     {
         return view('admin.dataJenisKendaraan.index')->with([
+            'title' => 'Data kendaraan',
             'Transport' => Transport::all(),
         ]);
     }

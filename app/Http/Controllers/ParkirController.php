@@ -19,6 +19,7 @@ class ParkirController extends Controller
     public function index()
     {
         return view('jukir.dataParkir.index')->with([
+            'title' => 'Data Parkir',
             'DataDiri' => Jukir::where('user_id', auth()->user()->id)->first(),
             'Kendaraan' => Transport::all(),
         ]);
