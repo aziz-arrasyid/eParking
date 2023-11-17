@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GajiBulanan;
+use Carbon\Carbon;
 use Midtrans\Config;
 use App\Models\Jukir;
 use App\Models\Parkir;
 use App\Models\Payment;
 use App\Models\Transport;
+use App\Models\GajiBulanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Yajra\DataTables\Facades\DataTables;
@@ -43,6 +44,25 @@ class dashboardJukirController extends Controller
     {
         $Parkir = Parkir::find($request->id);
 
+        // Hitung jarak waktu dalam jam
+            $created_at = Carbon::parse($Parkir->created_at);
+            $now = Carbon::now();
+            $jarakWaktuJam = $now->diffInHours($created_at);
+
+            // Hitung harga parkir berdasarkan tarif per jam
+            $hargaPerJamData = $Parkir->transport->hargaParkir; // Harga per jam
+
+            if($jarakWaktuJam > 0)
+            {
+                $hargaParkir = $jarakWaktuJam * $hargaPerJamData;
+
+                $totalHarga = $Parkir->transport->hargaParkir + $hargaParkir;
+                // $Parkir->hargaPerJam = $hargaParkir;
+                $Parkir->update([
+                    'hargaPerJam' => $totalHarga
+                ]);
+            }
+
         $payment = Payment::where('parkir_id', $request->id)->first();
         if(!$payment){
             $order_id = 'eParking'.$request->id.rand();
@@ -56,16 +76,29 @@ class dashboardJukirController extends Controller
             // Set 3DS transaction for credit card to true
             \Midtrans\Config::$is3ds = true;
 
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $order_id,
-                    'gross_amount' => $Parkir->transport->hargaParkir,
-                ),
-                'customer_details' => array(
-                    'first_name' => $Parkir->transport->jenisKendaraan,
-                    'last_name' => $Parkir->no_plat,
-                ),
-            );
+            if($jarakWaktuJam > 0){
+                $params = array(
+                    'transaction_details' => array(
+                        'order_id' => $order_id,
+                        'gross_amount' => $Parkir->hargaPerJam,
+                    ),
+                    'customer_details' => array(
+                        'first_name' => $Parkir->transport->jenisKendaraan,
+                        'last_name' => $Parkir->no_plat,
+                    ),
+                );
+            }else{
+                $params = array(
+                    'transaction_details' => array(
+                        'order_id' => $order_id,
+                        'gross_amount' => $Parkir->transport->hargaParkir,
+                    ),
+                    'customer_details' => array(
+                        'first_name' => $Parkir->transport->jenisKendaraan,
+                        'last_name' => $Parkir->no_plat,
+                    ),
+                );
+            }
 
             $snapToken = \Midtrans\Snap::getSnapToken($params);
 
@@ -94,16 +127,29 @@ class dashboardJukirController extends Controller
                 // Set 3DS transaction for credit card to true
                 \Midtrans\Config::$is3ds = true;
 
-                $params = array(
-                    'transaction_details' => array(
-                        'order_id' => $order_id,
-                        'gross_amount' => $Parkir->transport->hargaParkir,
-                    ),
-                    'customer_details' => array(
-                        'first_name' => $Parkir->transport->jenisKendaraan,
-                        'last_name' => $Parkir->no_plat,
-                    ),
-                );
+                if($jarakWaktuJam > 0){
+                    $params = array(
+                        'transaction_details' => array(
+                            'order_id' => $order_id,
+                            'gross_amount' => $Parkir->hargaPerJam,
+                        ),
+                        'customer_details' => array(
+                            'first_name' => $Parkir->transport->jenisKendaraan,
+                            'last_name' => $Parkir->no_plat,
+                        ),
+                    );
+                }else{
+                    $params = array(
+                        'transaction_details' => array(
+                            'order_id' => $order_id,
+                            'gross_amount' => $Parkir->hargaPerJam,
+                        ),
+                        'customer_details' => array(
+                            'first_name' => $Parkir->transport->jenisKendaraan,
+                            'last_name' => $Parkir->no_plat,
+                        ),
+                    );
+                }
 
                 $snapToken = \Midtrans\Snap::getSnapToken($params);
 

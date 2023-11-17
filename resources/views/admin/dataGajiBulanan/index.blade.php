@@ -209,7 +209,8 @@
             },
             {
                 title: 'Uang upah',
-                data: 'cashUpah'
+                data: 'cashUpah',
+                render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp. ' )
             },
             {
                 title: 'Status pajak',
@@ -217,7 +218,8 @@
             },
             {
                 title: 'Uang pajak',
-                data: 'cashPajak'
+                data: 'cashPajak',
+                render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp. ' )
             },
             {
                 title: 'Parkir|cash',

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('jukir_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->enum('status',['paid', 'unpaid'])->default('unpaid');
             $table->integer('untungBersih')->default(0);
+            $table->integer('hargaPerJam')->default(0);
             $table->string('payment_type')->default('cash');
             $table->timestamps();
         });

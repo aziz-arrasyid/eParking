@@ -36,12 +36,12 @@ class dashboardAdminController extends Controller
 
 
         return DataTables::of($query)
-        ->addColumn('totalCash', function () {
-            $totalCash = Parkir::where('payment_type', 'cash')->count();
+        ->addColumn('totalCash', function ($query) {
+            $totalCash = Parkir::where('payment_type', 'cash')->where('jukir_id', $query->jukir_id)->count();
             return $totalCash;
         })
-        ->addColumn('totalQris', function () {
-            $totalQris = Parkir::where('payment_type', 'qris')->count();
+        ->addColumn('totalQris', function ($query) {
+            $totalQris = Parkir::where('payment_type', 'qris')->where('jukir_id', $query->jukir_id)->count();
             return $totalQris;
         })
         ->make(true);

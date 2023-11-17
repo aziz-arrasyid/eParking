@@ -42,7 +42,7 @@ class ParkirController extends Controller
         $transactionStatus = $payload['transaction_status'];
 
         $order = Payment::where('order_id', $orderId)->first();
-        $parkir = Parkir::find($order->id);
+        $parkir = Parkir::find($order->parkir_id);
         if(!$order)
         {
             return response()->json([

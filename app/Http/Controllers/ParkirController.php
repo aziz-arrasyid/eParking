@@ -75,6 +75,28 @@ class ParkirController extends Controller
      */
     public function edit(Parkir $data_parkir)
     {
+        if($data_parkir->status == 'unpaid')
+        {
+            // Hitung jarak waktu dalam jam
+            $created_at = Carbon::parse($data_parkir->created_at);
+            $now = Carbon::now();
+            $jarakWaktuJam = $now->diffInHours($created_at);
+
+            // Hitung harga parkir berdasarkan tarif per jam
+            $hargaPerJam = $data_parkir->transport->hargaParkir; // Harga per jam
+
+            if($jarakWaktuJam > 0)
+            {
+                $hargaParkir = $jarakWaktuJam * $hargaPerJam;
+
+                $totalHarga = $data_parkir->transport->hargaParkir + $hargaParkir;
+                // $data_parkir->hargaPerJam = $hargaParkir;
+                $data_parkir->update([
+                    'hargaPerJam' => $totalHarga
+                ]);
+            }
+        }
+
         $data_parkir->load('transport', 'jukir');
         return response()->json($data_parkir);
     }
@@ -139,14 +161,14 @@ class ParkirController extends Controller
                     GajiBulanan::create([
                         'jukir_id' => $request->jukir_id,
                         'bulan' => $monthNameId[$month]. ' '. $year,
-                        'cashPajak' => $data_parkir->transport->pajak,
+                        'cashPajak' => $data_parkir->hargaPerJam,
                     ]);
                 }
             }else{
                 $gajiBulanan = GajiBulanan::where('jukir_id', $request->jukir_id)->where('bulan', $monthNameId[$month].' '. $year)->first();
                 if($data_parkir->payment_type == 'cash'){
                     $gajiBulanan->update([
-                        'cashPajak' => $gajiBulanan->cashPajak + $data_parkir->transport->pajak,
+                        'cashPajak' => $gajiBulanan->cashPajak + $data_parkir->hargaPerJam,
                     ]);
                 }
             }
@@ -159,7 +181,7 @@ class ParkirController extends Controller
                 if($data_parkir->payment_type == 'cash'){
                     if($gajiBulanan->cashPajak > 0){
                         $gajiBulanan->update([
-                            'cashPajak' => $gajiBulanan->cashPajak - $data_parkir->transport->pajak,
+                            'cashPajak' => $gajiBulanan->cashPajak - $data_parkir->hargaPerJam,
                         ]);
                     }
                 }

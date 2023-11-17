@@ -61,6 +61,11 @@
                             <option value="unpaid" id="unpaid">unpaid</option>
                         </select>
                     </div>
+                    <div class="input-group mb-3">
+                      <input type="text" readonly class="form-control" placeholder="harga parkir" id="hargaParkir" aria-label="hargaParkir">
+                      <span class="input-group-text">× harga/jam =</span>
+                      <input type="text" readonly class="form-control" placeholder="Total harga parkir" id="totalHargaParkir" aria-label="totalHargaParkir">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="closeEdit" data-dismiss="modal">Close</button>
@@ -207,6 +212,17 @@
                 render: $.fn.dataTable.render.number( '.', ',', 0, 'Rp. ' )
             },
             {
+                title: 'Harga/Jam',
+                data: 'hargaPerJam',
+                render: function (data, type, row) {
+                           if (data > 0) {
+                                return 'Rp. ' + data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                            } else {
+                                return 'Rp. ' + row.transport.hargaParkir;
+                            }
+                        }
+            },
+            {
                 title: 'Status',
                 data: 'status'
             },
@@ -249,6 +265,14 @@
                             if(response.data.payment_type == 'qris')
                             {
                                 $('#unpaid').css('display', 'none');
+                            }
+                            $('#hargaParkir').val('Rp. ' + response.data.transport.hargaParkir);
+                            if(response.data.hargaPerJam > 0)
+                            {
+                                $('#totalHargaParkir').val('Rp. ' + response.data.hargaPerJam);
+                            }else
+                            {
+                                $('#totalHargaParkir').val('Rp. ' + response.data.transport.hargaParkir);
                             }
                         })
 
